@@ -3,282 +3,394 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>KARTIK RESEARCH — DESISHOP_2000.EXE</title>
+  <title>KARTIK RESEARCH · कार्तिक रिसर्च — White 2K Desi Atelier</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --haldi: #FFC60A;
-      --pink: #FF2E80;
-      --chilli: #E8261C;
-      --chutney: #0C8A5C;
-      --aqua: #00D2D3;
+      /* White 2K Gallery Surfaces */
+      --white: #FFFFFF;
+      --gallery: #FAF9F6;
+      --plinth: #F3F2EE;
       --chrome-top: #FFFFFF;
-      --chrome-bot: #D9DDE8;
-      --ink: #1A1033;
-      --cream: #FFF4DE;
-      --paper: #FFFDF8;
-      --mono: "SFMono-Regular", ui-monospace, Menlo, Monaco, Consolas, monospace;
-      --sans: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      --chrome-bot: #ECEEF2;
+      --line: #E4E2DC;
+      --line-strong: #C9C6BE;
+
+      /* Deep Indigo-Ink Typography */
+      --ink: #141124;
+      --ink-soft: #4A465C;
+      --muted: #767285;
+
+      /* Vibrant Desi Pigment Accents */
+      --rani: #E60067;
+      --sindoor: #E42313;
+      --haldi: #F5B400;
+      --chutney: #00875A;
+      --peacock: #0066CC;
+
+      /* Typography */
+      --serif: "Instrument Serif", "Iowan Old Style", Georgia, serif;
+      --sans: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", sans-serif;
+      --mono: "JetBrains Mono", "SFMono-Regular", ui-monospace, Menlo, monospace;
+      --dev: "Noto Sans Devanagari", sans-serif;
+
+      /* Precision Radius & Shadow */
+      --r-sm: 6px;
+      --r-md: 12px;
+      --r-lg: 20px;
+      --shadow-2k: 0 1px 2px rgba(20, 17, 36, 0.04), 0 12px 32px rgba(20, 17, 36, 0.05);
+      --bevel-2k: inset 0 1px 0 rgba(255, 255, 255, 0.95), 0 1px 2px rgba(20, 17, 36, 0.06);
     }
 
-    *, *::before, *::after { box-sizing: border-box; }
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
 
-    html, body {
+    html {
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+    }
+
+    body {
       margin: 0;
       padding: 0;
-      background-color: var(--cream);
-      background-image:
-        linear-gradient(to right, rgba(26, 16, 51, 0.06) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(26, 16, 51, 0.06) 1px, transparent 1px),
-        radial-gradient(circle at 20px 20px, rgba(255, 46, 128, 0.16) 2px, transparent 2px);
-      background-size: 26px 26px, 26px 26px, 52px 52px;
+      background: var(--white);
       color: var(--ink);
       font-family: var(--sans);
-      font-size: 15px;
-      line-height: 1.45;
+      font-size: 14px;
+      line-height: 1.5;
       -webkit-font-smoothing: antialiased;
-      cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='26' height='26' viewBox='0 0 26 26'><path d='M13 1 L15.6 10.4 L25 13 L15.6 15.6 L13 25 L10.4 15.6 L1 13 L10.4 10.4 Z' fill='%23FF2E80' stroke='%231A1033' stroke-width='1.5'/></svg>") 13 13, auto;
+      overflow-x: hidden;
     }
 
-    button, select, input { cursor: pointer; font: inherit; color: inherit; }
-    button { background: none; border: none; padding: 0; }
-
-    body.plain-mode {
-      background: #F6F5F1 !important;
-      background-image: none !important;
-      cursor: auto !important;
+    button, input, select {
+      font: inherit;
+      color: inherit;
     }
-    body.plain-mode .ticker,
-    body.plain-mode .truck-border,
-    body.plain-mode .sticker-row { display: none !important; }
-    body.plain-mode .y2k-win,
-    body.plain-mode .buy-desk,
-    body.plain-mode .k-card,
-    body.plain-mode .winamp-deck {
+
+    button {
+      background: none;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* Plain Mode: Low-motion, low-bandwidth accessible gallery */
+    body.plain-mode .arch-watermark,
+    body.plain-mode .reticle,
+    body.plain-mode .pigment-strip {
+      display: none !important;
+    }
+    body.plain-mode .stage-box,
+    body.plain-mode .product-card,
+    body.plain-mode .audio-deck {
       box-shadow: none !important;
-      background: #FFFDF8 !important;
+      background: #FFFFFF !important;
     }
 
-    /* Y2K Marquee + Folk Truck-Art Trim */
-    .ticker {
-      background: var(--ink);
-      color: var(--haldi);
-      font-family: var(--mono);
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.09em;
-      padding: 5px 0;
-      overflow: hidden;
-      white-space: nowrap;
-      border-bottom: 2px solid var(--ink);
-    }
-    .ticker-inner {
-      display: inline-block;
-      padding-left: 100%;
-      animation: scrollTxt 24s linear infinite;
-    }
-    @keyframes scrollTxt {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-100%); }
+    /* 4px Print-Proof Desi Pigment Registration Bar */
+    .pigment-strip {
+      height: 4px;
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
     }
 
-    .truck-border {
-      height: 10px;
-      background: repeating-linear-gradient(
-        90deg,
-        var(--pink) 0 18px,
-        var(--haldi) 18px 36px,
-        var(--chutney) 36px 54px,
-        var(--chilli) 54px 72px,
-        var(--aqua) 72px 90px
-      );
-      border-bottom: 2px solid var(--ink);
-    }
-
-    /* Sticky Chrome + Haldi Bar */
+    /* Sticky White-2K Frosted Chrome Header */
     .topbar {
       position: sticky;
       top: 0;
-      z-index: 40;
-      background: rgba(255, 198, 10, 0.92);
-      backdrop-filter: saturate(180%) blur(14px);
-      -webkit-backdrop-filter: saturate(180%) blur(14px);
-      border-bottom: 2.5px solid var(--ink);
-      padding: 10px 22px;
+      z-index: 60;
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: saturate(180%) blur(20px);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .topbar-inner {
+      max-width: 1380px;
+      margin: 0 auto;
+      padding: 12px 28px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 12px;
+      gap: 16px;
       flex-wrap: wrap;
     }
 
-    .brand-pill {
+    .brand-lockup {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .brand-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--rani), var(--sindoor));
+      box-shadow: 0 0 0 3px rgba(230, 0, 103, 0.12);
+    }
+
+    .brand-en {
       font-family: var(--mono);
-      font-size: 11px;
-      font-weight: 800;
-      letter-spacing: 0.09em;
+      font-size: 11.5px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
-      background: linear-gradient(180deg, #FF5CA0 0%, var(--pink) 100%);
-      color: #FFF;
+    }
+
+    .brand-hi {
+      font-family: var(--dev);
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--rani);
+      padding-left: 8px;
+      border-left: 1px solid var(--line);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      flex-wrap: wrap;
+    }
+
+    .nav-link {
+      font-family: var(--mono);
+      font-size: 10.5px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+      padding: 4px 0;
+      border-bottom: 2px solid transparent;
+      transition: color 0.15s ease, border-color 0.15s ease;
+    }
+    .nav-link:hover, .nav-link.active {
+      color: var(--ink);
+      border-bottom-color: var(--rani);
+    }
+
+    .util-group {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--mono);
+      font-size: 10.5px;
+    }
+
+    /* Subtle White-2K Brushed Silver Pill Control */
+    .chrome-pill {
+      padding: 6px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--line-strong);
+      background: linear-gradient(180deg, var(--chrome-top) 0%, var(--chrome-bot) 100%);
+      box-shadow: var(--bevel-2k);
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      transition: border-color 0.15s ease, transform 0.15s ease;
+    }
+    .chrome-pill:hover {
+      border-color: var(--ink);
+    }
+    .chrome-pill.on {
+      background: var(--ink);
+      border-color: var(--ink);
+      color: var(--white);
+      box-shadow: none;
+    }
+
+    .bag-pill {
       padding: 6px 14px;
       border-radius: 999px;
-      border: 2px solid var(--ink);
-      box-shadow: 2.5px 2.5px 0 var(--ink);
-    }
-
-    .nav-row, .util-row {
-      display: flex;
-      align-items: center;
-      gap: 7px;
-      flex-wrap: wrap;
-    }
-
-    .gel-btn {
-      font-family: var(--mono);
-      font-size: 11px;
-      font-weight: 700;
-      padding: 6px 13px;
-      border-radius: 999px;
-      border: 2px solid var(--ink);
-      background: linear-gradient(180deg, var(--chrome-top) 0%, var(--chrome-bot) 100%);
-      box-shadow: 2px 2px 0 var(--ink);
-      text-transform: uppercase;
-    }
-    .gel-btn:hover { background: var(--aqua); }
-    .gel-btn.active { background: var(--ink); color: var(--haldi); }
-    .gel-btn.on { background: var(--chilli); color: #FFF; }
-
-    .view { display: none; }
-    .view.active { display: block; }
-
-    .wrap {
-      max-width: 1180px;
-      margin: 0 auto;
-      padding: 30px 22px 76px;
-    }
-
-    /* Hero */
-    .hero-head {
-      text-align: center;
-      max-width: 820px;
-      margin: 0 auto 22px;
-    }
-
-    .sticker-row {
-      display: flex;
-      justify-content: center;
-      gap: 8px;
-      flex-wrap: wrap;
-      margin-bottom: 12px;
-    }
-
-    .stamp {
-      font-family: var(--mono);
-      font-size: 10px;
-      font-weight: 800;
+      background: var(--ink);
+      color: var(--white);
+      font-weight: 600;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      padding: 4px 10px;
-      border: 2px solid var(--ink);
-      box-shadow: 3px 3px 0 var(--ink);
-    }
-
-    .hero-title {
-      margin: 0;
-      font-size: clamp(34px, 5.4vw, 62px);
-      font-weight: 800;
-      letter-spacing: -0.03em;
-      line-height: 1.03;
-      text-shadow: 2.5px 2.5px 0 rgba(255, 198, 10, 0.85);
-    }
-
-    .hero-sub {
-      margin: 10px auto 0;
-      max-width: 600px;
-      font-size: 16px;
-      color: rgba(26, 16, 51, 0.84);
-    }
-
-    /* Apple Cover-Flow Style Garment Dock */
-    .coverflow-dock {
-      display: flex;
-      justify-content: center;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin: 22px auto 26px;
-      perspective: 900px;
-    }
-
-    .cf-card {
-      padding: 10px 18px;
-      border-radius: 18px;
-      border: 2px solid var(--ink);
-      background: linear-gradient(180deg, #FFFFFF 0%, #EFECE2 100%);
-      box-shadow: 4px 4px 0 var(--ink);
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 2px;
-      min-width: 195px;
-      transition: transform 0.18s ease, background 0.18s ease;
-    }
-    .cf-card:hover { transform: translateY(-3px) rotateY(-4deg); background: var(--haldi); }
-    .cf-card.active {
-      background: var(--chutney);
-      color: #FFF;
-      transform: translateY(-4px) scale(1.03);
-      box-shadow: 5px 5px 0 var(--pink);
-    }
-
-    /* Y2K OS Window Stage */
-    .y2k-win {
-      border-radius: 22px;
-      border: 2.5px solid var(--ink);
-      box-shadow: 8px 8px 0 var(--pink);
-      background: var(--paper);
-      overflow: hidden;
-    }
-
-    .win-bar {
-      background: linear-gradient(90deg, var(--ink) 0%, #3E1F7A 54%, var(--pink) 100%);
-      color: var(--haldi);
-      border-bottom: 2.5px solid var(--ink);
-      padding: 8px 14px;
-      display: flex;
-      justify-content: space-between;
+      display: inline-flex;
       align-items: center;
-      font-family: var(--mono);
-      font-size: 11px;
+      gap: 7px;
+      transition: background 0.15s ease;
+    }
+    .bag-pill:hover {
+      background: var(--rani);
+    }
+    .bag-badge {
+      background: var(--haldi);
+      color: var(--ink);
+      padding: 1px 6px;
+      border-radius: 999px;
+      font-size: 10px;
       font-weight: 700;
     }
 
-    .win-dots { display: flex; gap: 5px; }
-    .win-dots span {
-      width: 20px; height: 18px;
-      display: inline-flex; align-items: center; justify-content: center;
-      background: var(--chrome-bot); color: var(--ink);
-      border: 1.5px solid var(--ink); font-size: 10px; font-weight: 800;
+    /* ---------------- LAYOUT CONTAINERS ---------------- */
+    .section-wrap {
+      max-width: 1380px;
+      margin: 0 auto;
+      padding: 44px 28px 64px;
     }
 
+    .section-divider {
+      border-top: 1px solid var(--line);
+      background: var(--gallery);
+    }
+
+    .section-divider.white-bg {
+      background: var(--white);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--mono);
+      font-size: 10.5px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--rani);
+      margin-bottom: 10px;
+    }
+
+    .eyebrow-dev {
+      font-family: var(--dev);
+      font-size: 12px;
+      color: var(--chutney);
+      letter-spacing: 0;
+    }
+
+    .h-display {
+      margin: 0;
+      font-family: var(--serif);
+      font-size: clamp(38px, 4.8vw, 64px);
+      font-weight: 400;
+      line-height: 1.02;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+    }
+
+    .h-section {
+      margin: 0;
+      font-family: var(--serif);
+      font-size: clamp(30px, 3.6vw, 46px);
+      font-weight: 400;
+      line-height: 1.06;
+      letter-spacing: -0.015em;
+    }
+
+    /* ---------------- HERO: WHITE 2K STAGE + LIVE ACQUISITION PANEL ---------------- */
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.38fr) minmax(340px, 0.82fr);
+      gap: 32px;
+      align-items: start;
+    }
+
+    .stage-column {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    /* Crisp High-Key White Studio Cyclorama */
     .stage-box {
       position: relative;
-      height: 490px;
-      background:
-        radial-gradient(circle at 18% 20%, rgba(0, 210, 211, 0.3), transparent 46%),
-        radial-gradient(circle at 84% 26%, rgba(255, 46, 128, 0.34), transparent 48%),
-        radial-gradient(circle at 50% 82%, rgba(255, 198, 10, 0.48), #FFFDF8 72%);
+      height: 550px;
+      border-radius: var(--r-lg);
+      border: 1px solid var(--line);
+      background: radial-gradient(circle at 50% 38%, #FFFFFF 0%, #FAF9F6 64%, #F0EFEA 100%);
+      box-shadow: var(--shadow-2k);
       overflow: hidden;
+    }
+
+    /* Delicate Mughal Jharokha Architectural Hairline */
+    .arch-watermark {
+      position: absolute;
+      inset: 14px;
+      z-index: 3;
+      pointer-events: none;
+      opacity: 0.22;
+    }
+
+    /* 2000s Optical Viewfinder Telemetry */
+    .reticle {
+      position: absolute;
+      z-index: 6;
+      pointer-events: none;
+      font-family: var(--mono);
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+      text-transform: uppercase;
+    }
+    .ret-tl { top: 18px; left: 20px; display: flex; align-items: center; gap: 7px; }
+    .ret-tr { top: 18px; right: 20px; color: var(--chutney); font-weight: 600; }
+    .ret-bl { bottom: 16px; left: 20px; }
+
+    .live-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--sindoor);
+    }
+
+    /* Optical Zoom & Reset Controls (Prevents Mousewheel Scroll Trapping) */
+    .stage-optical-ctrls {
+      position: absolute;
+      right: 16px;
+      bottom: 14px;
+      z-index: 8;
+      display: flex;
+      gap: 6px;
+    }
+
+    .opt-btn {
+      width: 30px;
+      height: 30px;
+      border-radius: 999px;
+      border: 1px solid var(--line-strong);
+      background: rgba(255, 255, 255, 0.9);
+      box-shadow: var(--bevel-2k);
+      font-family: var(--mono);
+      font-size: 12px;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .opt-btn:hover {
+      border-color: var(--ink);
+      color: var(--rani);
     }
 
     .stage-layer {
-      position: absolute; inset: 0;
-      width: 100%; height: 100%;
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
       display: none;
+      z-index: 2;
     }
     .stage-layer.active { display: block; }
-    .stage-layer canvas { display: block; width: 100% !important; height: 100% !important; }
+    .stage-layer canvas {
+      display: block;
+      width: 100% !important;
+      height: 100% !important;
+    }
 
-    .stage-foot {
-      margin-top: 16px;
+    .stage-toolbar {
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -288,422 +400,1072 @@
 
     .seg-bar {
       display: inline-flex;
-      gap: 4px;
-      padding: 4px;
+      padding: 3px;
       border-radius: 999px;
-      border: 2px solid var(--ink);
-      background: linear-gradient(180deg, var(--chrome-top), var(--chrome-bot));
-      box-shadow: 3px 3px 0 var(--ink);
+      border: 1px solid var(--line-strong);
+      background: var(--plinth);
+      gap: 3px;
     }
+
     .seg-btn {
-      padding: 6px 14px;
+      padding: 7px 14px;
       border-radius: 999px;
-      font-size: 12px;
-      font-weight: 700;
-    }
-    .seg-btn.active { background: var(--ink); color: var(--haldi); }
-
-    /* Open Studio Desk + Buy Strip */
-    .buy-desk {
-      margin-top: 26px;
-      padding: 26px;
-      border-radius: 22px;
-      border: 2.5px solid var(--ink);
-      box-shadow: 6px 6px 0 var(--ink);
-      background: var(--paper);
-      display: grid;
-      grid-template-columns: minmax(0, 1.05fr) minmax(300px, 0.95fr);
-      gap: 26px;
-      align-items: start;
-    }
-
-    .size-row { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px; }
-    .sz-pill {
-      padding: 8px 14px;
-      border-radius: 999px;
-      border: 2px solid var(--ink);
-      background: var(--cream);
       font-family: var(--mono);
-      font-size: 12px;
-      font-weight: 800;
+      font-size: 10.5px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+      transition: all 0.15s ease;
     }
-    .sz-pill.active { background: var(--pink); color: #FFF; }
-    .sz-pill.soldout { text-decoration: line-through; border-style: dashed; opacity: 0.72; }
+    .seg-btn.active {
+      background: var(--white);
+      color: var(--ink);
+      box-shadow: 0 1px 3px rgba(20, 17, 36, 0.12);
+    }
 
-    .cta-btn {
-      margin-top: 16px;
-      width: 100%;
-      padding: 13px 20px;
-      border-radius: 999px;
-      border: 2px solid var(--ink);
-      box-shadow: 4px 4px 0 var(--ink);
-      background: linear-gradient(180deg, #FF473D 0%, var(--chilli) 100%);
-      color: #FFF;
-      font-size: 14px;
-      font-weight: 800;
-      letter-spacing: 0.02em;
+    /* 4-Piece Architectural Thumbnail Switcher */
+    .garment-strip {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
     }
-    .cta-btn:hover { background: var(--ink); color: var(--haldi); }
+
+    .garment-tab {
+      text-align: left;
+      padding: 12px 14px;
+      border-radius: var(--r-md);
+      border: 1px solid var(--line);
+      background: var(--white);
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      transition: all 0.15s ease;
+    }
+    .garment-tab:hover {
+      border-color: var(--ink-soft);
+      background: var(--gallery);
+    }
+    .garment-tab.active {
+      border-color: var(--ink);
+      background: var(--white);
+      box-shadow: 0 0 0 1px var(--ink), 0 6px 18px rgba(20, 17, 36, 0.06);
+    }
+
+    .gt-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: var(--mono);
+      font-size: 9.5px;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+    }
+    .gt-swatch {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+    }
+    .gt-name {
+      font-size: 12.5px;
+      font-weight: 600;
+      color: var(--ink);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .gt-price {
+      font-family: var(--mono);
+      font-size: 10.5px;
+      color: var(--ink-soft);
+    }
+
+    /* Right Panel: Acquisition Card */
+    .buy-panel {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--r-lg);
+      padding: 28px;
+      box-shadow: var(--shadow-2k);
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .price-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .price-main {
+      font-family: var(--mono);
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    .craft-chip {
+      font-family: var(--mono);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(0, 135, 90, 0.1);
+      color: var(--chutney);
+    }
+
+    .buy-desc {
+      margin: 0;
+      font-size: 14.5px;
+      line-height: 1.6;
+      color: var(--ink-soft);
+    }
+
+    .size-header {
+      display: flex;
+      justify-content: space-between;
+      font-family: var(--mono);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .size-grid {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .sz-btn {
+      min-width: 50px;
+      padding: 9px 14px;
+      border-radius: var(--r-sm);
+      border: 1px solid var(--line-strong);
+      background: var(--white);
+      font-family: var(--mono);
+      font-size: 11.5px;
+      font-weight: 600;
+      transition: all 0.15s ease;
+    }
+    .sz-btn:hover {
+      border-color: var(--ink);
+    }
+    .sz-btn.active {
+      background: var(--ink);
+      border-color: var(--ink);
+      color: var(--white);
+    }
+    .sz-btn.soldout {
+      text-decoration: line-through;
+      border-style: dashed;
+      color: var(--muted);
+      background: var(--gallery);
+    }
+
+    .cta-primary {
+      width: 100%;
+      padding: 14px 20px;
+      border-radius: 999px;
+      background: var(--ink);
+      color: var(--white);
+      font-family: var(--mono);
+      font-size: 11.5px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      transition: background 0.18s ease, transform 0.12s ease;
+    }
+    .cta-primary:hover {
+      background: var(--sindoor);
+    }
+    .cta-primary:active {
+      transform: scale(0.99);
+    }
 
     .waitlist-box {
       display: none;
-      margin-top: 14px;
-      padding: 14px;
-      border-radius: 16px;
-      border: 2px solid var(--ink);
-      background: var(--haldi);
+      padding: 16px;
+      border-radius: var(--r-md);
+      border: 1px solid rgba(228, 35, 19, 0.35);
+      background: #FFF7F5;
     }
     .waitlist-box.open { display: block; }
 
-    /* Maker Hours + Patina + Notebook Scan */
-    .desk-stack { display: flex; flex-direction: column; gap: 14px; }
-    .desk-tile {
-      padding: 14px;
-      border-radius: 16px;
-      border: 2px solid var(--ink);
-      background: var(--cream);
-    }
-    .hour-row {
+    .trust-strip {
       display: grid;
-      grid-template-columns: 108px 1fr 44px;
-      align-items: center;
-      gap: 8px;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      padding-top: 14px;
+      border-top: 1px solid var(--line);
+      font-size: 12px;
+      color: var(--ink-soft);
+    }
+    .trust-item strong {
+      display: block;
       font-family: var(--mono);
       font-size: 10px;
-      margin-top: 6px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ink);
+      margin-bottom: 2px;
     }
-    .bar-bg { height: 7px; background: #E4DBC7; border: 1px solid var(--ink); position: relative; }
-    .bar-fg { position: absolute; inset: 0 auto 0 0; background: var(--chutney); }
+
+    /* ---------------- FULL PRODUCTION STOREFRONT CATALOG ---------------- */
+    .catalog-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-bottom: 28px;
+    }
+
+    .filter-row {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .filter-pill {
+      padding: 7px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--line-strong);
+      background: var(--white);
+      font-family: var(--mono);
+      font-size: 10.5px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+      transition: all 0.15s ease;
+    }
+    .filter-pill:hover { border-color: var(--ink); color: var(--ink); }
+    .filter-pill.active {
+      background: var(--ink);
+      border-color: var(--ink);
+      color: var(--white);
+    }
+
+    .catalog-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .product-card {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--r-md);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+    .product-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--line-strong);
+      box-shadow: var(--shadow-2k);
+    }
+
+    .pc-media {
+      position: relative;
+      aspect-ratio: 4 / 3;
+      background: var(--plinth);
+      overflow: hidden;
+      border-bottom: 1px solid var(--line);
+    }
+    .pc-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .pc-tag {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      padding: 3px 9px;
+      border-radius: 999px;
+      font-family: var(--mono);
+      font-size: 9.5px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      background: rgba(255, 255, 255, 0.94);
+      border: 1px solid var(--line);
+    }
+
+    .pc-body {
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      flex: 1;
+    }
+
+    .pc-origin {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .pc-title {
+      margin: 0;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    .pc-note {
+      margin: 0;
+      font-size: 12.5px;
+      color: var(--ink-soft);
+      flex: 1;
+    }
+
+    .pc-foot {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+      padding-top: 10px;
+      border-top: 1px solid var(--line);
+    }
+
+    .pc-price {
+      font-family: var(--mono);
+      font-size: 12.5px;
+      font-weight: 700;
+    }
+
+    .pc-btn {
+      padding: 6px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--ink);
+      font-family: var(--mono);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: all 0.15s ease;
+    }
+    .pc-btn:hover {
+      background: var(--rani);
+      border-color: var(--rani);
+      color: var(--white);
+    }
+
+    /* ---------------- OPEN STUDIO DESK (CRAFT PROVENANCE) ---------------- */
+    .atelier-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+      gap: 32px;
+      margin-top: 28px;
+      align-items: start;
+    }
+
+    .atelier-card {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--r-lg);
+      padding: 26px;
+      box-shadow: var(--shadow-2k);
+    }
+
+    .hour-row {
+      display: grid;
+      grid-template-columns: 118px 1fr 48px;
+      align-items: center;
+      gap: 12px;
+      font-family: var(--mono);
+      font-size: 10.5px;
+      margin-top: 10px;
+      color: var(--ink-soft);
+    }
+    .hour-track {
+      height: 6px;
+      border-radius: 999px;
+      background: var(--plinth);
+      overflow: hidden;
+    }
+    .hour-fill {
+      height: 100%;
+      border-radius: 999px;
+    }
+
+    .patina-box {
+      margin-top: 22px;
+      padding-top: 20px;
+      border-top: 1px solid var(--line);
+    }
+    .patina-flex {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-top: 12px;
+    }
+    .patina-swatch {
+      width: 60px;
+      height: 60px;
+      border-radius: var(--r-md);
+      border: 1px solid var(--line-strong);
+      flex-shrink: 0;
+    }
+    input[type="range"] {
+      accent-color: var(--rani);
+      width: 100%;
+      cursor: pointer;
+    }
+
+    .friction-note {
+      margin-top: 20px;
+      padding: 16px 18px;
+      border-radius: var(--r-md);
+      border-left: 3px solid var(--sindoor);
+      background: #FFF9F2;
+      font-size: 13.5px;
+      color: var(--ink);
+    }
 
     .nb-canvas {
       width: 100%;
       height: auto;
       display: block;
-      border: 2px solid var(--ink);
-      border-radius: 10px;
-      margin-top: 8px;
+      border-radius: var(--r-md);
+      border: 1px solid var(--line);
       cursor: zoom-in;
+      margin-top: 12px;
     }
 
-    /* Winamp / Y2K Mini-Disc Audio Deck (Strictly Manual) */
-    .winamp-deck {
-      background: linear-gradient(180deg, #27184A 0%, #160D2B 100%);
-      color: var(--haldi);
-      border: 2.5px solid var(--ink);
-      border-radius: 20px;
-      box-shadow: 6px 6px 0 var(--aqua);
-      padding: 16px 18px;
+    /* ---------------- EDITORIAL: A6 ZINE SPREAD + 16MM LOOKBOOK ---------------- */
+    .zine-folio {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border: 1px solid var(--line);
+      border-radius: var(--r-lg);
+      overflow: hidden;
+      background: var(--white);
+      box-shadow: var(--shadow-2k);
+      margin-top: 24px;
+    }
+    .zine-leaf {
+      padding: 34px;
+      min-height: 270px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .zine-leaf:first-child {
+      border-right: 1px solid var(--line);
+      background: linear-gradient(180deg, #FFFDF7 0%, #FFF8E3 100%);
+    }
+
+    .lookbook-strip {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 28px;
+    }
+    .lb-tile {
+      border: 1px solid var(--line);
+      border-radius: var(--r-md);
+      background: var(--white);
+      overflow: hidden;
+    }
+    .lb-tile img {
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      object-fit: cover;
+      display: block;
+      background: var(--plinth);
+    }
+    .lb-cap {
+      padding: 10px 12px;
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      color: var(--ink-soft);
+      display: flex;
+      justify-content: space-between;
+    }
+
+    /* ---------------- RAW DESK + WHITE-2K MINIDISC AUDIO CONSOLE ---------------- */
+    .audio-deck {
+      margin-top: 24px;
+      padding: 18px 22px;
+      border-radius: var(--r-lg);
+      border: 1px solid var(--line-strong);
+      background: linear-gradient(180deg, #FFFFFF 0%, #F1F2F6 100%);
+      box-shadow: var(--shadow-2k);
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 14px;
+      gap: 18px;
       flex-wrap: wrap;
       font-family: var(--mono);
-      font-size: 11px;
+      font-size: 10.5px;
     }
-    .eq-canvas {
-      width: 140px;
-      height: 36px;
-      background: #0D071A;
-      border: 1.5px solid var(--aqua);
-      border-radius: 6px;
+
+    .eq-lcd {
+      width: 136px;
+      height: 34px;
+      border-radius: var(--r-sm);
+      background: var(--ink);
+      border: 1px solid var(--line-strong);
       display: block;
     }
-    .stem-pill {
-      padding: 6px 12px;
-      border-radius: 999px;
-      border: 1.5px solid var(--haldi);
-      background: transparent;
-      color: var(--haldi);
-      font-family: var(--mono);
-      font-size: 11px;
-      font-weight: 700;
-    }
-    .stem-pill.on { background: var(--pink); color: #FFF; border-color: #FFF; }
 
-    /* Grids & Cards */
-    .grid-cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-      gap: 18px;
-      margin-top: 20px;
+    .stem-btn {
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--line-strong);
+      background: var(--white);
+      font-family: var(--mono);
+      font-size: 10.5px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: all 0.15s ease;
     }
-    .k-card {
-      border-radius: 20px;
-      border: 2.5px solid var(--ink);
-      box-shadow: 5px 5px 0 var(--ink);
-      background: var(--paper);
-      padding: 16px;
+    .stem-btn:hover { border-color: var(--ink); }
+    .stem-btn.on {
+      background: var(--chutney);
+      border-color: var(--chutney);
+      color: var(--white);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 24px;
+    }
+
+    .contact-card {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--r-md);
+      padding: 14px;
       display: flex;
       flex-direction: column;
       gap: 10px;
     }
-    .frame-img {
+    .contact-card img {
       width: 100%;
       aspect-ratio: 3 / 2;
       object-fit: cover;
-      border-radius: 12px;
-      border: 2px solid var(--ink);
+      border-radius: var(--r-sm);
       display: block;
+      background: var(--plinth);
     }
 
-    /* Bag & Lightbox */
+    /* ---------------- FOOTER ---------------- */
+    .site-footer {
+      border-top: 1px solid var(--line);
+      background: var(--white);
+    }
+    .footer-inner {
+      max-width: 1380px;
+      margin: 0 auto;
+      padding: 48px 28px 36px;
+      display: grid;
+      grid-template-columns: 1.3fr 1fr 1fr 1.2fr;
+      gap: 32px;
+    }
+    .foot-h {
+      font-family: var(--mono);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+    .foot-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+      font-size: 13px;
+      color: var(--ink-soft);
+    }
+
+    /* ---------------- BAG DRAWER & MODALS ---------------- */
+    .drawer-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(20, 17, 36, 0.35);
+      backdrop-filter: blur(4px);
+      z-index: 80;
+      display: none;
+    }
+    .drawer-backdrop.open { display: block; }
+
     .bag-drawer {
       position: fixed;
       top: 0; right: 0; bottom: 0;
-      width: min(390px, 100vw);
-      background: var(--paper);
-      border-left: 2.5px solid var(--ink);
-      z-index: 80;
+      width: min(420px, 100vw);
+      background: var(--white);
+      border-left: 1px solid var(--line);
+      z-index: 90;
       display: none;
       flex-direction: column;
-      padding: 22px;
-      gap: 12px;
+      padding: 24px;
+      gap: 16px;
       overflow-y: auto;
+      box-shadow: -12px 0 40px rgba(20, 17, 36, 0.12);
     }
     .bag-drawer.open { display: flex; }
 
-    .lightbox {
+    .ship-meter {
+      padding: 12px 14px;
+      border-radius: var(--r-md);
+      background: var(--gallery);
+      border: 1px solid var(--line);
+      font-family: var(--mono);
+      font-size: 10.5px;
+    }
+    .ship-bar {
+      height: 5px;
+      border-radius: 999px;
+      background: var(--line);
+      margin-top: 8px;
+      overflow: hidden;
+    }
+    .ship-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--haldi), var(--chutney));
+      transition: width 0.25s ease;
+    }
+
+    .bag-item {
+      border: 1px solid var(--line);
+      border-radius: var(--r-md);
+      padding: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .qty-box {
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid var(--line-strong);
+      border-radius: 999px;
+      overflow: hidden;
+      font-family: var(--mono);
+      font-size: 11px;
+    }
+    .qty-box button {
+      width: 26px;
+      height: 26px;
+      font-weight: 700;
+    }
+    .qty-box span {
+      padding: 0 8px;
+      font-weight: 600;
+    }
+
+    .modal {
       position: fixed;
       inset: 0;
-      z-index: 95;
-      background: rgba(26, 16, 51, 0.82);
+      z-index: 100;
+      background: rgba(20, 17, 36, 0.55);
+      backdrop-filter: blur(6px);
       display: none;
       align-items: center;
       justify-content: center;
       padding: 20px;
     }
-    .lightbox.open { display: flex; }
-    .lightbox-box {
-      background: var(--cream);
-      border: 2.5px solid var(--ink);
-      border-radius: 18px;
-      padding: 16px;
-      max-width: 780px;
+    .modal.open { display: flex; }
+    .modal-card {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--r-lg);
+      max-width: 820px;
       width: 100%;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
+      padding: 22px;
+      box-shadow: 0 24px 64px rgba(20, 17, 36, 0.2);
     }
 
-    @media (max-width: 880px) {
-      .buy-desk { grid-template-columns: 1fr; }
-      .stage-box { height: 350px; }
-      .topbar { padding: 10px 14px; }
-      .wrap { padding: 22px 14px 64px; }
+    /* ---------------- RESPONSIVE ---------------- */
+    @media (max-width: 1120px) {
+      .hero-grid { grid-template-columns: 1fr; }
+      .catalog-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .lookbook-strip { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .footer-inner { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 760px) {
+      .topbar-inner { padding: 10px 16px; }
+      .nav-links { display: none; }
+      .section-wrap { padding: 28px 16px 44px; }
+      .stage-box { height: 370px; border-radius: var(--r-md); }
+      .garment-strip { grid-template-columns: 1fr 1fr; }
+      .catalog-grid, .atelier-grid, .zine-folio, .contact-grid, .footer-inner {
+        grid-template-columns: 1fr;
+      }
+      .zine-leaf:first-child { border-right: none; border-bottom: 1px solid var(--line); }
+      .buy-panel { padding: 20px; }
     }
   </style>
 </head>
 <body>
 
-  <div class="ticker" aria-hidden="true">
-    <div class="ticker-inner">
-      &#10022; DESISHOP_2000.EXE &#10022; HANDLOOM INDIGO + KANTHA + 3D GLB &#10022; CHATPATA FOLK-POP EDITION &#10022; MANUAL AUDIO ONLY &#10022; ZERO DISCOUNTING ON CORE CLOTH &#10022;
-    </div>
+  <!-- 4px Print-Proof Desi Pigment Registration Bar -->
+  <div class="pigment-strip" aria-hidden="true">
+    <div style="background:#F5B400;"></div>
+    <div style="background:#E60067;"></div>
+    <div style="background:#E42313;"></div>
+    <div style="background:#00875A;"></div>
   </div>
-  <div class="truck-border" aria-hidden="true"></div>
 
+  <!-- Sticky White-2K Header -->
   <header class="topbar">
-    <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap;">
-      <div class="brand-pill">DesiShop_2000.exe</div>
-      <nav class="nav-row" aria-label="Main navigation">
-        <button class="gel-btn active" data-view="garments">Garments.3d</button>
-        <button class="gel-btn" data-view="zines">Zines_Scraps</button>
-        <button class="gel-btn" data-view="raw">Raw_Desk</button>
-      </nav>
-    </div>
+    <div class="topbar-inner">
+      <a href="#showcase" class="brand-lockup">
+        <span class="brand-dot" aria-hidden="true"></span>
+        <span class="brand-en">Kartik Research</span>
+        <span class="brand-hi">कार्तिक रिसर्च</span>
+      </a>
 
-    <div class="util-row">
-      <select id="currSelect" class="gel-btn" aria-label="Currency">
-        <option value="USD">USD $</option>
-        <option value="INR">INR &#8377;</option>
-        <option value="EUR">EUR &euro;</option>
-        <option value="GBP">GBP &pound;</option>
-      </select>
-      <button id="plainBtn" class="gel-btn" aria-pressed="false">Plain: Off</button>
-      <button id="bagBtn" class="gel-btn">Bag (<span id="bagCount">0</span>)</button>
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="#showcase" class="nav-link active">01 3D Gallery</a>
+        <a href="#catalog" class="nav-link">02 Shop All</a>
+        <a href="#atelier" class="nav-link">03 Open Studio</a>
+        <a href="#editorial" class="nav-link">04 Zine &amp; 16mm</a>
+        <a href="#raw-desk" class="nav-link">05 Raw Desk</a>
+      </nav>
+
+      <div class="util-group">
+        <select id="currSelect" class="chrome-pill" aria-label="Currency">
+          <option value="INR">INR &#8377;</option>
+          <option value="USD" selected>USD $</option>
+          <option value="EUR">EUR &euro;</option>
+          <option value="GBP">GBP &pound;</option>
+        </select>
+        <button id="plainBtn" class="chrome-pill" aria-pressed="false">Plain</button>
+        <button id="bagBtn" class="bag-pill">Bag <span id="bagCount" class="bag-badge">0</span></button>
+      </div>
     </div>
   </header>
 
-  <!-- VIEW 1: GARMENTS -->
-  <section id="view-garments" class="view active">
-    <div class="wrap">
-      <div class="hero-head">
-        <div class="sticker-row">
-          <span class="stamp" style="background:#FF2E80; color:#FFF; transform:rotate(-2deg);" id="pieceKicker"></span>
-          <span class="stamp" style="background:#00D2D3; color:#1A1033; transform:rotate(1.6deg);" id="pieceStillTag"></span>
-          <span class="stamp" style="background:#FFC60A; color:#1A1033; transform:rotate(-1deg);">EXPORT QUALITY // 2000</span>
-        </div>
-        <h1 class="hero-title" id="heroTitle"></h1>
-        <p class="hero-sub" id="heroDesc"></p>
-      </div>
+  <main>
+    <!-- 01. WHITE-2K HERO STAGE + LIVE ACQUISITION PANEL -->
+    <section id="showcase" class="section-wrap">
+      <div class="hero-grid">
+        <div class="stage-column">
+          <div class="stage-box">
+            <!-- Subtle Mughal Jharokha Arch Outline -->
+            <svg class="arch-watermark" viewBox="0 0 1000 520" preserveAspectRatio="none" aria-hidden="true">
+              <path d="M 24 510 L 24 118 Q 24 24 130 24 L 385 24 Q 500 4 615 24 L 870 24 Q 976 24 976 118 L 976 510"
+                    fill="none" stroke="#141124" stroke-width="1" />
+            </svg>
 
-      <div class="coverflow-dock" id="coverflowDock"></div>
+            <!-- 2000s Optical Viewfinder Telemetry -->
+            <div class="reticle ret-tl">
+              <span class="live-dot"></span>
+              <span id="retFile">INDIGO_CHECK_SHIRT.GLB</span>
+            </div>
+            <div class="reticle ret-tr" id="retStill">REEL 02 · JAIPUR DUSK</div>
+            <div class="reticle ret-bl" id="stageStatus">DRAG TO ORBIT · 2K WHITE STUDIO</div>
 
-      <div class="y2k-win">
-        <div class="win-bar">
-          <span id="winTitle">C:\DESISHOP\PIECE.GLB</span>
-          <div class="win-dots" aria-hidden="true"><span>_</span><span>&#9633;</span><span>&times;</span></div>
-        </div>
-        <div class="stage-box">
-          <div id="layer3d" class="stage-layer active"></div>
-          <div id="layerCloth" class="stage-layer"></div>
-          <div id="layerLookbook" class="stage-layer" style="padding:22px; overflow-y:auto;"></div>
-        </div>
-      </div>
+            <!-- Dedicated Optical Zoom / Reset Buttons -->
+            <div class="stage-optical-ctrls" id="opticalCtrls">
+              <button class="opt-btn" id="zoomInBtn" title="Zoom In" aria-label="Zoom In">+</button>
+              <button class="opt-btn" id="zoomOutBtn" title="Zoom Out" aria-label="Zoom Out">&minus;</button>
+              <button class="opt-btn" id="resetCamBtn" title="Reset View" aria-label="Reset Camera">&#8634;</button>
+            </div>
 
-      <div class="stage-foot">
-        <div class="seg-bar" role="tablist">
-          <button class="seg-btn active" id="mode3d">3D Model</button>
-          <button class="seg-btn" id="modeCloth">Cloth Light</button>
-          <button class="seg-btn" id="modeLookbook">16mm Still</button>
-        </div>
-        <span id="stageStatus" class="stamp" style="background:#FFC60A; box-shadow:none; border-radius:999px;"></span>
-      </div>
-
-      <div class="buy-desk">
-        <div>
-          <div style="display:flex; justify-content:space-between; align-items:baseline; gap:12px;">
-            <strong id="stripTitle" style="font-size:22px; letter-spacing:-0.02em;"></strong>
-            <strong id="stripPrice" style="font-family:var(--mono); font-size:17px; color:var(--chilli);"></strong>
+            <div id="layer3d" class="stage-layer active"></div>
+            <div id="layerCloth" class="stage-layer"></div>
+            <div id="layerLookbook" class="stage-layer" style="padding:46px 26px 26px; overflow-y:auto;"></div>
           </div>
 
-          <div class="size-row" id="sizePills"></div>
+          <div class="stage-toolbar">
+            <div class="seg-bar" role="tablist" aria-label="Inspection view">
+              <button class="seg-btn active" id="mode3d">3D Object</button>
+              <button class="seg-btn" id="modeCloth">Raking Cloth</button>
+              <button class="seg-btn" id="modeLookbook">16mm Still</button>
+            </div>
+            <span id="stageClusterLine" style="font-family:var(--mono); font-size:10.5px; color:var(--muted); text-transform:uppercase; letter-spacing:0.08em;"></span>
+          </div>
 
-          <button id="buyBtn" class="cta-btn">Add to Bag</button>
+          <div class="garment-strip" id="garmentStrip"></div>
+        </div>
+
+        <!-- Immediate Shopper Acquisition Panel -->
+        <aside class="buy-panel" aria-label="Selected Garment Details">
+          <div>
+            <div class="eyebrow">
+              <span id="pieceKicker"></span>
+              <span style="color:var(--line-strong);">/</span>
+              <span class="eyebrow-dev" id="pieceDev"></span>
+            </div>
+            <h1 class="h-display" id="heroTitle" style="font-size:clamp(34px, 3.6vw, 48px);"></h1>
+          </div>
+
+          <div class="price-row">
+            <span class="price-main" id="heroPrice"></span>
+            <span class="craft-chip" id="heroHoursChip"></span>
+          </div>
+
+          <p class="buy-desc" id="heroDesc"></p>
+
+          <div>
+            <div class="size-header">
+              <span>Select Size</span>
+              <span style="color:var(--rani);">Dashed = Weaver Waitlist</span>
+            </div>
+            <div class="size-grid" id="sizeGrid"></div>
+          </div>
+
+          <button id="buyBtn" class="cta-primary">Add to Bag</button>
 
           <div id="waitlistBox" class="waitlist-box">
-            <div style="font-family:var(--mono); font-size:11px; font-weight:800; color:var(--chilli); margin-bottom:8px;">
-              SOLD OUT SIZE — SMALL-BATCH WEAVER WAITLIST
+            <div style="font-family:var(--mono); font-size:10px; font-weight:700; letter-spacing:0.1em; color:var(--sindoor); margin-bottom:8px;">
+              SOLD OUT IN THIS SIZE — JOIN SMALL-BATCH LOOM WAITLIST
             </div>
             <form id="waitlistForm" style="display:flex; gap:8px;">
-              <input type="email" id="waitlistEmail" required placeholder="you@domain.com" style="flex:1; padding:8px 12px; border-radius:999px; border:2px solid var(--ink); background:#FFF;" />
-              <button type="submit" class="gel-btn" style="background:var(--ink); color:var(--haldi);">Join</button>
+              <input type="email" id="waitlistEmail" required placeholder="you@domain.com" style="flex:1; padding:9px 12px; border-radius:999px; border:1px solid var(--line-strong); background:#FFFFFF;" />
+              <button type="submit" style="padding:9px 16px; border-radius:999px; background:var(--ink); color:#FFFFFF; font-family:var(--mono); font-size:10px; font-weight:700; text-transform:uppercase;">Join</button>
             </form>
-            <div id="waitlistMsg" style="font-family:var(--mono); font-size:11px; margin-top:8px;"></div>
+            <div id="waitlistMsg" style="font-family:var(--mono); font-size:10.5px; color:var(--chutney); margin-top:8px;"></div>
           </div>
 
-          <div class="desk-tile" style="margin-top:16px; background:#FFFDF8;">
-            <div style="display:flex; justify-content:space-between; font-family:var(--mono); font-size:10px; font-weight:800;">
-              <span style="color:var(--pink);">NATURAL DYE PATINA (YR 0 &rarr; YR 5)</span>
-              <span id="patinaYr">YR 0</span>
+          <div class="trust-strip">
+            <div class="trust-item">
+              <strong>Zero Discounting</strong>
+              Full-price craft so weavers earn fairly.
             </div>
-            <div style="display:flex; align-items:center; gap:12px; margin-top:10px;">
-              <div id="patinaSwatch" style="width:52px; height:52px; border-radius:10px; border:2px solid var(--ink); flex-shrink:0;"></div>
-              <div style="flex:1;">
-                <input type="range" id="patinaSlider" min="0" max="5" value="0" style="width:100%;" />
-                <div id="patinaNote" style="font-size:12px; margin-top:4px;"></div>
-              </div>
+            <div class="trust-item">
+              <strong>Lifetime Darning</strong>
+              Complimentary hand repair at Delhi &amp; NYC.
             </div>
           </div>
+        </aside>
+      </div>
+    </section>
 
-          <div class="desk-tile" style="margin-top:14px; border-left:5px solid var(--chilli);">
-            <div style="font-family:var(--mono); font-size:10px; font-weight:800; color:var(--chilli);">UNEDITED STUDIO FRICTION</div>
-            <div id="specChaos" style="margin-top:4px; font-size:13px;"></div>
+    <!-- 02. FULL PRODUCTION STOREFRONT CATALOG -->
+    <section id="catalog" class="section-divider">
+      <div class="section-wrap">
+        <div class="catalog-head">
+          <div>
+            <div class="eyebrow">Collection Index <span class="eyebrow-dev">· संग्रह</span></div>
+            <h2 class="h-section">Mainline Cloth, Zines &amp; Off-Cuts</h2>
+          </div>
+
+          <div class="filter-row" id="catalogFilters" role="tablist" aria-label="Filter collection">
+            <button class="filter-pill active" data-filter="all">All Pieces (8)</button>
+            <button class="filter-pill" data-filter="mainline">Mainline Cloth (4)</button>
+            <button class="filter-pill" data-filter="accessible">Zines &amp; Off-Cuts (4)</button>
           </div>
         </div>
 
-        <div class="desk-stack">
-          <div class="desk-tile">
-            <div style="display:flex; justify-content:space-between; font-family:var(--mono); font-size:10px; font-weight:800;">
-              <span style="color:var(--chutney);">MAKER &amp; HOURS LEDGER</span>
-              <span id="specHours"></span>
+        <div class="catalog-grid" id="catalogGrid"></div>
+      </div>
+    </section>
+
+    <!-- 03. OPEN STUDIO DESK (PROOF OF HANDS, PATINA, NOTEBOOK SCAN) -->
+    <section id="atelier" class="section-divider white-bg">
+      <div class="section-wrap">
+        <div class="eyebrow">Open Studio Desk <span class="eyebrow-dev">· कारखाना अभिलेख</span></div>
+        <h2 class="h-section" id="atelierHeading">Proof of Hands: Indigo Check Shirt</h2>
+
+        <div class="atelier-grid">
+          <div class="atelier-card">
+            <div style="display:flex; justify-content:space-between; align-items:baseline; gap:12px;">
+              <strong id="specMaker" style="font-size:15px;"></strong>
+              <span id="specHours" style="font-family:var(--mono); font-size:11px; font-weight:700; color:var(--chutney);"></span>
             </div>
-            <div id="specMaker" style="font-size:13px; font-weight:700; margin:4px 0 8px;"></div>
-            <div id="hoursBars"></div>
+            <div id="hoursBars" style="margin-top:8px;"></div>
+
+            <div class="patina-box">
+              <div style="display:flex; justify-content:space-between; font-family:var(--mono); font-size:10.5px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase;">
+                <span style="color:var(--rani);">Natural Pigment Patina (Yr 0 &rarr; Yr 5)</span>
+                <span id="patinaYr">YEAR 0</span>
+              </div>
+              <div class="patina-flex">
+                <div id="patinaSwatch" class="patina-swatch"></div>
+                <div style="flex:1;">
+                  <input type="range" id="patinaSlider" min="0" max="5" value="0" aria-label="Years of wear" />
+                  <div id="patinaNote" style="font-size:13px; color:var(--ink-soft); margin-top:4px;"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="friction-note">
+              <div style="font-family:var(--mono); font-size:10px; font-weight:700; letter-spacing:0.12em; color:var(--sindoor); text-transform:uppercase; margin-bottom:4px;">
+                Unedited Workshop Friction Log
+              </div>
+              <div id="specChaos"></div>
+            </div>
           </div>
 
-          <div class="desk-tile" style="background:#F7F2E6;">
-            <div style="display:flex; justify-content:space-between; font-family:var(--mono); font-size:10px; font-weight:800;">
-              <span id="nbCode">NB-SCAN</span>
-              <span>CLICK TO ZOOM</span>
+          <div class="atelier-card" style="background:var(--gallery);">
+            <div style="display:flex; justify-content:space-between; align-items:center; font-family:var(--mono); font-size:10.5px; color:var(--muted); text-transform:uppercase; letter-spacing:0.1em;">
+              <span id="nbCode" style="color:var(--ink); font-weight:700;"></span>
+              <span>Click Scan to Zoom</span>
             </div>
             <canvas id="nbCanvas" class="nb-canvas"></canvas>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- VIEW 2: ZINES & SCRAPS -->
-  <section id="view-zines" class="view">
-    <div class="wrap">
-      <div class="hero-head">
-        <div class="sticker-row"><span class="stamp" style="background:#0C8A5C; color:#FFF;">PRINT &amp; OFF-CUTS</span></div>
-        <h2 class="hero-title">Zines &amp; Scraps</h2>
-        <p class="hero-sub">Pocket research editions and zero-waste fabric objects for everyday collectors.</p>
-      </div>
-
-      <div class="y2k-win">
-        <div class="win-bar">
-          <span>C:\DESISHOP\A6_RESEARCH_ZINE.PDF</span>
-          <span id="zinePageNum">SPREAD 1 / 3</span>
-        </div>
-        <div style="padding:20px;" id="zineReaderCard"></div>
-      </div>
-
-      <div style="display:flex; justify-content:center; gap:10px; margin-top:16px;">
-        <button class="gel-btn" id="prevZine">&larr; Prev Spread</button>
-        <button class="gel-btn" id="nextZine">Next Spread &rarr;</button>
-      </div>
-
-      <div class="grid-cards" id="scrapsGrid"></div>
-    </div>
-  </section>
-
-  <!-- VIEW 3: RAW DESK & WINAMP SOUND -->
-  <section id="view-raw" class="view">
-    <div class="wrap">
-      <div class="hero-head">
-        <div class="sticker-row"><span class="stamp" style="background:#FFC60A; color:#1A1033;">35MM CONTACT SHEET + AUDIO</span></div>
-        <h2 class="hero-title">Raw Desk &amp; Sound</h2>
-        <p class="hero-sub">Imported darkroom frames plus a manual workshop stem player—never auto-playing.</p>
-      </div>
-
-      <div class="winamp-deck">
-        <div style="display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
-          <canvas id="eqCanvas" class="eq-canvas" width="140" height="36"></canvas>
+    <!-- 04. A6 RESEARCH ZINE & 16MM LOOKBOOK -->
+    <section id="editorial" class="section-divider">
+      <div class="section-wrap">
+        <div style="display:flex; justify-content:space-between; align-items:flex-end; gap:16px; flex-wrap:wrap;">
           <div>
-            <div style="color:var(--aqua); font-weight:800;">WORKSHOP_DECK.WAV (MANUAL)</div>
-            <div id="audioReadout" style="font-size:10px; opacity:0.85;">IDLE — CLICK A STEM</div>
+            <div class="eyebrow">A6 Risograph Zine &amp; 16mm Reels <span class="eyebrow-dev">· पत्रिका</span></div>
+            <h2 class="h-section">Research Notes &amp; Lookbook</h2>
+          </div>
+          <div style="display:flex; align-items:center; gap:10px; font-family:var(--mono); font-size:10.5px;">
+            <button class="chrome-pill" id="prevZine">&larr; Prev</button>
+            <span id="zinePageNum" style="font-weight:700; color:var(--ink);">01 / 03</span>
+            <button class="chrome-pill" id="nextZine">Next &rarr;</button>
           </div>
         </div>
-        <div style="display:flex; gap:7px; flex-wrap:wrap;">
-          <button class="stem-pill" data-stem="loom">01 Pit Loom</button>
-          <button class="stem-pill" data-stem="block">02 Wood Block</button>
-          <button class="stem-pill" data-stem="air">03 Room Air</button>
-          <button class="stem-pill" id="muteStems" style="border-color:var(--aqua); color:var(--aqua);">Mute</button>
+
+        <div class="zine-folio" id="zineFolio"></div>
+
+        <div class="lookbook-strip" id="lookbookStrip"></div>
+      </div>
+    </section>
+
+    <!-- 05. RAW DESK CONTACT SHEET & WHITE-2K MINIDISC AUDIO DECK -->
+    <section id="raw-desk" class="section-divider white-bg">
+      <div class="section-wrap">
+        <div class="eyebrow">35mm Contact Sheet &amp; Room Acoustics <span class="eyebrow-dev">· ध्वनि एवं कक्ष</span></div>
+        <h2 class="h-section">Raw Desk &amp; Manual Workshop Sound</h2>
+
+        <div class="audio-deck">
+          <div style="display:flex; align-items:center; gap:14px; flex-wrap:wrap;">
+            <canvas id="eqCanvas" class="eq-lcd" width="136" height="34"></canvas>
+            <div>
+              <div style="font-weight:700; letter-spacing:0.1em; color:var(--ink);">WORKSHOP_DECK · MANUAL ONLY</div>
+              <div id="audioReadout" style="color:var(--muted); margin-top:2px;">STANDBY — NEVER AUTO-PLAYS</div>
+            </div>
+          </div>
+
+          <div style="display:flex; gap:8px; flex-wrap:wrap;">
+            <button class="stem-btn" data-stem="loom">01 Pit Loom</button>
+            <button class="stem-btn" data-stem="block">02 Wood Block</button>
+            <button class="stem-btn" data-stem="air">03 Room Air</button>
+            <button class="stem-btn" id="muteStems">Mute</button>
+          </div>
         </div>
+
+        <div class="contact-grid" id="contactGrid"></div>
+      </div>
+    </section>
+  </main>
+
+  <!-- PRODUCTION STOREFRONT FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div>
+        <div class="brand-lockup" style="margin-bottom:12px;">
+          <span class="brand-dot" aria-hidden="true"></span>
+          <span class="brand-en">Kartik Research</span>
+        </div>
+        <p style="margin:0; font-size:13px; color:var(--ink-soft); max-width:290px;">
+          Contemporary Indian craft house working directly with weavers, dyers, and quilt clusters across Varanasi, West Bengal, Gujarat, and Rajasthan.
+        </p>
       </div>
 
-      <div class="grid-cards" id="rawGrid"></div>
-    </div>
-  </section>
+      <div>
+        <div class="foot-h">Craft Clusters</div>
+        <ul class="foot-list">
+          <li>Varanasi Pit-Loom Guild</li>
+          <li>West Bengal Kantha Quilters</li>
+          <li>Chhipa Mohalla, Bagru</li>
+          <li>Gujarat Handloom Indigo</li>
+        </ul>
+      </div>
 
-  <!-- BAG DRAWER -->
+      <div>
+        <div class="foot-h">Ateliers</div>
+        <ul class="foot-list">
+          <li>GK2 Workroom, New Delhi</li>
+          <li>61 Orchard St, New York</li>
+          <li>Free Lifetime Hand Darning</li>
+          <li>Worldwide DHL Duties Paid</li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="foot-h">Atelier Dispatch</div>
+        <p style="margin:0 0 10px; font-size:12.5px; color:var(--ink-soft);">
+          Small-batch releases, zine drops, and workshop essays—no flash sales.
+        </p>
+        <form id="newsForm" style="display:flex; gap:6px;">
+          <input type="email" id="newsEmail" required placeholder="email@domain.com" style="flex:1; padding:8px 12px; border-radius:999px; border:1px solid var(--line-strong); font-size:12.5px;" />
+          <button type="submit" class="chrome-pill" style="background:var(--ink); color:#FFF; border-color:var(--ink);">Join</button>
+        </form>
+        <div id="newsMsg" style="font-family:var(--mono); font-size:10px; color:var(--chutney); margin-top:6px;"></div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- BAG BACKDROP & SLIDE-OVER DRAWER -->
+  <div id="drawerBackdrop" class="drawer-backdrop"></div>
   <aside id="bagDrawer" class="bag-drawer" aria-label="Shopping Bag">
-    <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:2px solid var(--ink); padding-bottom:10px;">
-      <strong style="font-family:var(--mono); font-size:12px;">BAG.EXE</strong>
-      <button class="gel-btn" id="closeBag">Close &times;</button>
+    <div style="display:flex; justify-content:space-between; align-items:center; padding-bottom:12px; border-bottom:1px solid var(--line);">
+      <strong style="font-family:var(--mono); font-size:11.5px; letter-spacing:0.14em;">PARCEL BAG</strong>
+      <button id="closeBag" class="chrome-pill">Close &times;</button>
     </div>
+
+    <div class="ship-meter">
+      <div id="shipText"></div>
+      <div class="ship-bar"><div id="shipFill" class="ship-fill" style="width:0%;"></div></div>
+    </div>
+
     <div id="bagList" style="flex:1; display:flex; flex-direction:column; gap:10px;"></div>
-    <div style="border-top:2px solid var(--ink); padding-top:12px;">
-      <div style="display:flex; justify-content:space-between; font-family:var(--mono); font-size:13px; font-weight:800; margin-bottom:10px;">
+
+    <div style="border-top:1px solid var(--line); padding-top:14px;">
+      <div style="display:flex; justify-content:space-between; font-family:var(--mono); font-size:13px; margin-bottom:14px;">
         <span>SUBTOTAL</span>
-        <span id="bagTotal"></span>
+        <strong id="bagTotal"></strong>
       </div>
-      <button class="cta-btn" style="margin-top:0;" id="checkoutBtn">Checkout</button>
+      <button id="checkoutBtn" class="cta-primary">Proceed to Checkout</button>
     </div>
   </aside>
 
-  <!-- NOTEBOOK LIGHTBOX -->
-  <div id="nbLightbox" class="lightbox" aria-label="Notebook scan zoom">
-    <div class="lightbox-box">
-      <div style="display:flex; justify-content:space-between; align-items:center;">
-        <strong id="lbTitle" style="font-family:var(--mono); font-size:11px;">STUDIO NOTEBOOK</strong>
-        <button class="gel-btn" id="closeLb">Close &times;</button>
+  <!-- NOTEBOOK ZOOM MODAL -->
+  <div id="nbModal" class="modal" role="dialog" aria-modal="true" aria-label="Notebook Scan Zoom">
+    <div class="modal-card">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+        <span id="lbTitle" style="font-family:var(--mono); font-size:11px; font-weight:700; letter-spacing:0.1em;">ATELIER FOLIO</span>
+        <button id="closeNbModal" class="chrome-pill">Close &times;</button>
       </div>
-      <canvas id="lbCanvas" style="width:100%; height:auto; border:2px solid var(--ink); border-radius:10px;"></canvas>
+      <canvas id="lbCanvas" style="width:100%; height:auto; border-radius:10px; border:1px solid var(--line);"></canvas>
+    </div>
+  </div>
+
+  <!-- CHECKOUT CONFIRMATION MODAL -->
+  <div id="checkoutModal" class="modal" role="dialog" aria-modal="true" aria-label="Order Confirmation">
+    <div class="modal-card" style="max-width:480px; text-align:center; padding:30px;">
+      <div class="eyebrow" style="justify-content:center;">Order Preview <span class="eyebrow-dev">· धन्यवाद</span></div>
+      <h3 class="h-section" style="font-size:32px; margin-bottom:10px;">Parcel Reserved</h3>
+      <p id="checkoutSummary" style="font-size:13.5px; color:var(--ink-soft); margin:0 0 20px;"></p>
+      <button id="closeCheckout" class="cta-primary">Return to Gallery</button>
     </div>
   </div>
 
@@ -725,114 +1487,165 @@
     const GARMENTS = [
       {
         id: 'shirt',
+        category: 'mainline',
         kicker: 'Varanasi & Kutch',
+        dev: 'वाराणसी · ०१',
+        pigment: '#F5B400',
         stillTag: 'REEL 02 · JAIPUR DUSK',
         stillSrc: './lookbook2.png',
         title: 'Indigo Check Shirt',
         priceUSD: 480,
         glb: './indigo_check_shirt.glb',
         swatch: '075',
-        nbCode: 'NB-075 / ZARI WARP',
-        nbLines: ['24 indigo : 2 gold zari ends', 'Hand-cut mother-of-pearl buttons', 'Shade dry only'],
-        desc: 'Boxy handloom indigo check with subtle gold zari threads and mother-of-pearl buttons.',
+        nbCode: 'FOLIO 075 / ZARI WARP COUNT',
+        nbLines: ['24 indigo ends : 2 tested gold zari ends', 'Hand-cut mother-of-pearl buttons', 'Wash cold, dry in shade'],
+        desc: 'Boxy handloom natural indigo check shirt woven with supplementary gold zari threads and finished with hand-cut mother-of-pearl buttons.',
         sizes: [{ l: 'XS', ok: false }, { l: 'S', ok: true }, { l: 'M', ok: true }, { l: 'L', ok: true }],
         maker: 'Varanasi Pit-Loom Weavers + Kutch Stitchers',
-        hours: '36 HRS',
-        bars: [['Warp Setup', 8], ['Pit Loom', 16], ['Cuff Stitch', 7], ['Finish', 5]],
-        patina: { base: [27, 42, 60], aged: [74, 96, 118], notes: ['Crisp vat indigo.', 'Softens at collar.', 'Slate fade, warm zari.', 'Featherweight vintage drape.'] },
-        chaos: 'Re-warped initial loom test after tension pulled slightly along the yoke.'
+        hours: '36 HAND HOURS',
+        bars: [['Warp Setup', 8, '#F5B400'], ['Pit-Loom Weave', 16, '#141124'], ['Rabari Cuff', 7, '#E60067'], ['MOP Finish', 5, '#00875A']],
+        patina: {
+          base: [26, 40, 58],
+          aged: [72, 92, 114],
+          notes: ['Year 0: Deep vat indigo with quiet zari glint.', 'Year 1: Cotton softens naturally along collar crease.', 'Year 3: Dusty slate shift; zari warms to antique brass.', 'Year 5: Featherweight heirloom drape.']
+        },
+        chaos: 'First loom tension sample pulled slightly tight along the yoke—we re-warped the batch by hand before cutting.'
       },
       {
         id: 'coat',
+        category: 'mainline',
         kicker: 'West Bengal Quilts',
+        dev: 'बंगाल · ०२',
+        pigment: '#E60067',
         stillTag: 'REEL 03 · PARIS ROOM',
         stillSrc: './lookbook3.png',
         title: 'Kantha Overcoat',
         priceUSD: 1150,
         glb: './kantha_overcoat.glb',
         swatch: '059',
-        nbCode: 'NB-059 / QUILT MAP',
-        nbLines: ['Keep existing household darns', 'Raglan shoulder ease +2cm', 'Hand-tacked collar wire'],
-        desc: 'Long relaxed raglan overcoat stitched from layered Kantha cloth with matte horn buttons.',
+        nbCode: 'FOLIO 059 / QUILT DRAPE MAP',
+        nbLines: ['Preserve original household darns', 'Raglan ease +2.0cm across back', 'Hand-tacked collar wire finish'],
+        desc: 'Long relaxed raglan overcoat tailored from layered vintage Kantha cloth with dense running stitch texture and matte horn buttons.',
         sizes: [{ l: 'S', ok: true }, { l: 'M', ok: false }, { l: 'L', ok: true }, { l: 'XL', ok: true }],
-        maker: 'West Bengal Quilt Cluster + Delhi Tailors',
-        hours: '82 HRS',
-        bars: [['Sourcing', 10], ['Kantha', 46], ['Collar', 14], ['Tailoring', 12]],
-        patina: { base: [40, 58, 78], aged: [86, 100, 114], notes: ['Structured quilt panels.', 'Shoulders mold naturally.', 'Buried layers peek through.', 'Heirloom softness.'] },
-        chaos: 'Kept pre-existing quilt darns and uneven running stitches intact.'
+        maker: 'West Bengal Quilt Curators + Delhi Tailors',
+        hours: '82 HAND HOURS',
+        bars: [['Quilt Sourcing', 10, '#F5B400'], ['Kantha Stitch', 46, '#E60067'], ['Collar Detail', 14, '#141124'], ['Hand Tailoring', 12, '#00875A']],
+        patina: {
+          base: [38, 54, 74],
+          aged: [84, 96, 110],
+          notes: ['Year 0: Crisp layered quilt structure.', 'Year 1: Raglan shoulders mold to wearer posture.', 'Year 3: Buried quilt tones surface at cuff edges.', 'Year 5: Heirloom softness — free studio darning.']
+        },
+        chaos: 'Every quilt panel carries pre-existing household mends—we leave those uneven stitches intact rather than trimming them away.'
       },
       {
         id: 'tote',
+        category: 'mainline',
         kicker: 'Tannery & Godhadi',
+        dev: 'दिल्ली · ०३',
+        pigment: '#E42313',
         stillTag: 'REEL 04 · DELHI LANE',
         stillSrc: './lookbook4.png',
         title: 'Brown Leather Atma Tote',
         priceUSD: 640,
         glb: './atma_tote.glb',
         swatch: '059',
-        nbCode: 'NB-124 / GUSSET SPEC',
-        nbLines: ['21cm rolled veg-tan handle', 'Unlacquered cast brass rivets', 'Offcut Godhadi inner pocket'],
-        desc: 'Vegetable-tanned leather tote with rolled handles and antique brass rivets.',
+        nbCode: 'FOLIO 124 / GUSSET LOAD SPEC',
+        nbLines: ['21cm rolled vegetable-tan handles', 'Unlacquered cast brass rivets', 'Godhadi offcut interior pocket'],
+        desc: 'Tapered vegetable-tanned leather tote constructed with rolled handles, hand-waxed linen stitching, and unlacquered solid brass rivets.',
         sizes: [{ l: 'OS', ok: true }],
         maker: 'Vegetable-Tan Saddlery + Godhadi Liner',
-        hours: '22 HRS',
-        bars: [['Tanning', 6], ['Cutting', 3], ['Saddle Sew', 9], ['Liner', 4]],
-        patina: { base: [92, 56, 36], aged: [50, 27, 16], notes: ['Dry matte saddle finish.', 'Handles darken from carry.', 'Deep chestnut burnish.', 'Rich espresso patina.'] },
-        chaos: 'Switched handle anchors to 1mm waxed linen after heavy book load tests.'
+        hours: '22 HAND HOURS',
+        bars: [['Bark Tanning', 6, '#F5B400'], ['Hide Cutting', 3, '#E42313'], ['Saddle Stitch', 9, '#141124'], ['Godhadi Liner', 4, '#00875A']],
+        patina: {
+          base: [90, 55, 36],
+          aged: [48, 26, 15],
+          notes: ['Year 0: Dry matte saddle brown with wax bloom.', 'Year 1: Rolled handles darken first from carry.', 'Year 3: Rich chestnut burnish across corners.', 'Year 5: Deep espresso patina; brass rivets oxidize dark.']
+        },
+        chaos: 'Upgraded handle anchors to 1mm hand-waxed linen thread after load-testing hardcover books and a laptop through Delhi rain.'
       },
       {
         id: 'trouser',
+        category: 'mainline',
         kicker: 'Gujarat Denim Loom',
+        dev: 'गुजरात · ०४',
+        pigment: '#00875A',
         stillTag: 'REEL 01 · COURTYARD',
         stillSrc: './lookbook1.png',
         title: 'Crash Kantha Denim Trouser',
         priceUSD: 860,
         glb: './crash_kantha_trouser.glb',
         swatch: '059',
-        nbCode: 'NB-014 / CRASH PULL',
-        nbLines: ['14oz handloom cotton warp', 'Irregular 4–7mm stitch pull', 'Pre-wash shrink allowance 3.5%'],
-        desc: 'Wide-leg indigo denim trouser with Crash Kantha stitch relief and brass waist tack.',
+        nbCode: 'FOLIO 014 / CRASH TENSION TEST',
+        nbLines: ['14oz handloom cotton warp', 'Irregular 4–7mm stitch pull', '3.5% pre-wash allowance before cut'],
+        desc: 'Wide-leg handloom indigo denim trouser worked with dense Crash Kantha running stitches and finished with an oxidized brass waist tack.',
         sizes: [{ l: '28', ok: true }, { l: '30', ok: true }, { l: '31', ok: false }, { l: '32', ok: true }],
         maker: 'Gujarat Shuttle Loom + Bengal Kantha',
-        hours: '54 HRS',
-        bars: [['Indigo Vat', 8], ['Handloom', 12], ['Kantha', 28], ['Tailoring', 6]],
-        patina: { base: [29, 43, 58], aged: [84, 106, 126], notes: ['Deep crisp indigo.', 'Pocket edges crock soft.', 'Slubs surface as streaks.', 'Terraced quilt relief.'] },
-        chaos: 'Natural indigo crocks softly along pockets and knees from day one.'
+        hours: '54 HAND HOURS',
+        bars: [['Indigo Vat', 8, '#141124'], ['Handloom Weave', 12, '#00875A'], ['Crash Kantha', 28, '#E60067'], ['Pattern & Sew', 6, '#F5B400']],
+        patina: {
+          base: [28, 42, 56],
+          aged: [82, 102, 122],
+          notes: ['Year 0: Deep indigo vat tone with crisp stitch ridges.', 'Year 1: Pocket edges and knees crock softly.', 'Year 3: Handloom slubs surface as pale vertical streaks.', 'Year 5: Terraced quilt relief across the leg.']
+        },
+        chaos: 'Monsoon humidity slowed drying on the first Bengal sample and puckered the outseam—we tuned hand tension and kept the organic wave.'
       }
     ];
 
-    const ZINE_PAGES = [
-      { left: 'ISSUE 01 — ARCHIVE & LORE', bodyL: 'Natural dye notes, regional handloom clusters, and street visual lore behind each drop.', right: 'YEAR 0 → YEAR 5 PATINA', bodyR: 'Natural indigo and madder evolve with sun and wash rather than staying frozen.' },
-      { left: 'BAGRU & WORKSHOP RHYTHM', bodyL: 'Hand-carved blocks, afternoon chai breaks, and pattern adjustments on the cutting table.', right: 'FULL-PRICE INTEGRITY', bodyR: 'Core pieces stay fairly priced for artisans; zines and scraps welcome everyday collectors.' },
-      { left: 'INDIE SOUTH ASIAN SCORE', bodyL: 'Lifafa, Peter Cat Recording Co., Jaubi, Begum, and Sarathy Korwar across films and rooms.', right: 'ZERO AUTO-PLAY AUDIO', bodyR: 'Workshop stems only trigger when you click them in the manual deck.' }
+    const ACCESSIBLE_ITEMS = [
+      { id: 'zine-01', category: 'accessible', kicker: 'Print · 300 Copies', pigment: '#F5B400', title: 'Research Zine Issue 01 (A6)', priceUSD: 24, stillSrc: './frame1.png', desc: '36-page uncoated pocket zine with archival scans, dye recipes, and indie soundtrack notes.' },
+      { id: 'scrap-card', category: 'accessible', kicker: 'Zero-Waste Offcut', pigment: '#E60067', title: 'Kantha Overcoat Cardholder', priceUSD: 45, stillSrc: './frame6.png', desc: 'Cut from leftover overcoat quilt panels too small for sleeves. Hand-stamped batch number.' },
+      { id: 'dabu-bandana', category: 'accessible', kicker: 'Chhipa Mohalla, Bagru', pigment: '#00875A', title: 'Bagru Dabu Cotton Bandana', priceUSD: 58, stillSrc: './frame2.png', desc: '55cm coarse handspun cotton hand-stamped with carved sheesham blocks in madder and iron black.' },
+      { id: 'selvedge-fob', category: 'accessible', kicker: 'Gujarat Selvedge', pigment: '#E42313', title: 'Handloom Indigo Key Fob', priceUSD: 34, stillSrc: './frame3.png', desc: 'Selvedge denim strip from Crash Kantha trouser runs knotted onto an unlacquered brass ring.' }
     ];
 
-    const SCRAPS = [
-      { id: 'z1', title: 'Research Zine Issue 01 (A6)', priceUSD: 24, accent: '#FFC60A', note: '36-page pocket zine with dye notes and workshop essays.' },
-      { id: 'c1', title: 'Offcut Kantha Cardholder', priceUSD: 45, accent: '#FF2E80', note: 'Cut from leftover overcoat Kantha panels.' },
-      { id: 'b1', title: 'Bagru Dabu Cotton Bandana', priceUSD: 58, accent: '#0C8A5C', note: 'Hand-stamped cotton bandana in natural dye tones.' },
-      { id: 'f1', title: 'Selvedge Denim Key Fob', priceUSD: 34, accent: '#E8261C', note: 'Denim selvedge offcut paired with unlacquered brass ring.' }
+    const ZINE_PAGES = [
+      {
+        leftKicker: 'ISSUE 01 · PAGE 04',
+        leftTitle: 'Shimla Beat & 1970s Delhi Psych',
+        bodyL: 'Before cutting the first pattern, we traced 1970s Delhi college bands pairing Fender amps with tabla and sitar through scanned copies of Junior Statesman.',
+        rightKicker: 'LIVING PIGMENTS',
+        rightTitle: 'Fermented Indigo & Madder Root',
+        bodyR: 'Natural dyes are built to evolve with monsoon rain and sunlight rather than staying frozen beneath synthetic coatings.'
+      },
+      {
+        leftKicker: 'ISSUE 01 · PAGE 14',
+        leftTitle: 'Bagru Mud-Resist Courtyards',
+        bodyL: 'Dabu paste mixed by hand in Chhipa Mohalla. Every yard passes under hand-carved sheesham blocks before drying flat across open brick terraces.',
+        rightKicker: 'STUDIO ETHOS',
+        rightTitle: 'Full-Price Cloth, Open-Door Print',
+        bodyR: 'Core pieces stay full price so artisans earn fairly; pocket zines and zero-waste cutting-table scraps let everyday collectors own the craft.'
+      },
+      {
+        leftKicker: 'ISSUE 01 · PAGE 28',
+        leftTitle: 'Soundtrack for the Cutting Table',
+        bodyL: 'Curated South Asian records—Lifafa, Peter Cat Recording Co., Jaubi, Begum, and Sarathy Korwar—score lookbook reels and room sessions.',
+        rightKicker: 'AUDIO RESPECT',
+        rightTitle: 'Zero Auto-Play Policy',
+        bodyR: 'Pit-loom shuttles, woodblocks, and room air remain silent until you deliberately press a stem on the White-2K manual deck.'
+      }
     ];
 
     const CONTACT_FRAMES = [
-      { num: '01A', src: './frame1.png', loc: 'BAGRU, RAJASTHAN', accent: '#FFC60A', text: 'Wooden block dipped in dark pigment—kept natural hand-stamped registration.' },
-      { num: '02A', src: './frame2.png', loc: 'NEW DELHI ROOFTOP', accent: '#FF2E80', text: 'Indigo handloom lengths drying in afternoon light above the workroom.' },
-      { num: '03A', src: './frame3.png', loc: 'GURGAON · 4:15 PM CHAI', accent: '#0C8A5C', text: 'Tea glasses beside tailor chalk and embroidery hoops mid-session.' },
-      { num: '04A', src: './frame4.png', loc: '61 ORCHARD ST, NYC', accent: '#E8261C', text: 'Sidewalk hangout outside warm ochre plaster in patchwork cloth.' },
-      { num: '05A', src: './frame5.png', loc: 'PARIS · 11:40 PM', accent: '#00D2D3', text: 'Stacked shipping boxes and steamed coats before showroom fittings.' },
-      { num: '06A', src: './frame6.png', loc: 'WEST BENGAL CLUSTER', accent: '#FF2E80', text: 'Hand running-stitch through layered indigo and madder quilt cloth.' }
+      { num: '01A', src: './frame1.png', loc: 'BAGRU, RAJASTHAN', accent: '#F5B400', text: 'Sheesham wood block dipped in iron-jaggery black—kept the 2mm hand drift intact.' },
+      { num: '02A', src: './frame2.png', loc: 'NEW DELHI ROOFTOP', accent: '#E60067', text: 'Freshly dipped natural indigo denim drying above the tailoring room before dusk.' },
+      { num: '03A', src: './frame3.png', loc: 'GURGAON · 4:15 PM', accent: '#00875A', text: 'Two glasses of adrak chai beside tailor chalk, brass shears, and an embroidery frame.' },
+      { num: '04A', src: './frame4.png', loc: '61 ORCHARD ST, NYC', accent: '#E42313', text: 'Sidewalk conversation outside warm limewash plaster—regulars stopping by to hear tapes.' },
+      { num: '05A', src: './frame5.png', loc: 'PARIS · 11:40 PM', accent: '#141124', text: 'Shipping cartons stacked in a narrow apartment hallway while Kantha coats steam.' },
+      { num: '06A', src: './frame6.png', loc: 'WEST BENGAL CLUSTER', accent: '#E60067', text: 'Hand running-stitch through layered indigo and madder quilt cloth—zero electric machines.' }
     ];
 
     const state = {
       idx: 0,
       size: 'S',
-      mode: '3d',
+      mode: '3d', // '3d' | 'cloth' | 'lookbook'
+      filter: 'all',
       zineIdx: 0,
       currency: 'USD',
       plain: false,
       bag: [],
       textures: { '059': { albedo: null, normal: null } },
-      disposeGL: null
+      disposeGL: null,
+      camApi: null
     };
 
     function fmt(usd) {
@@ -840,8 +1653,26 @@
       return `${c.sym}${Math.round(usd * c.rate).toLocaleString('en-US')} ${state.currency}`;
     }
 
+    function fallbackPlateSVG(label, accent) {
+      const safe = String(label || 'ATELIER PLATE').replace(/[<>&"]/g, '');
+      const col = accent || '#E60067';
+      return 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(
+        `<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">` +
+        `<rect width="800" height="600" fill="#F5F4F0"/>` +
+        `<rect x="28" y="28" width="744" height="544" fill="#FFFFFF" stroke="#E4E2DC" stroke-width="2"/>` +
+        `<rect x="28" y="28" width="744" height="8" fill="${col}"/>` +
+        `<text x="400" y="290" text-anchor="middle" font-family="Georgia,serif" font-size="30" fill="#141124">${safe}</text>` +
+        `<text x="400" y="330" text-anchor="middle" font-family="monospace" font-size="13" letter-spacing="3" fill="#767285">KARTIK RESEARCH · STUDIO ARCHIVE PLATE</text>` +
+        `</svg>`
+      );
+    }
+
     function stopGL() {
-      if (typeof state.disposeGL === 'function') { state.disposeGL(); state.disposeGL = null; }
+      if (typeof state.disposeGL === 'function') {
+        state.disposeGL();
+        state.disposeGL = null;
+      }
+      state.camApi = null;
       document.getElementById('layer3d').innerHTML = '';
       document.getElementById('layerCloth').innerHTML = '';
     }
@@ -867,69 +1698,79 @@
       const c = document.createElement('canvas');
       c.width = 512; c.height = 512;
       const ctx = c.getContext('2d');
-      ctx.fillStyle = id === '075' ? '#1A1033' : '#0C8A5C';
+      ctx.fillStyle = id === '075' ? '#1A2B3D' : '#24374A';
       ctx.fillRect(0, 0, 512, 512);
-      ctx.strokeStyle = id === '075' ? '#FFC60A' : '#FFF4DE';
-      ctx.lineWidth = 2.5;
-      ctx.setLineDash([9, 6]);
+      ctx.strokeStyle = id === '075' ? '#F5B400' : '#FAF9F6';
+      ctx.lineWidth = 2;
+      ctx.setLineDash([8, 6]);
       for (let y = 18; y < 512; y += 22) {
-        ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(512, y + Math.sin(y * 0.04) * 6); ctx.stroke();
+        ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(512, y + Math.sin(y * 0.04) * 5); ctx.stroke();
       }
       return c;
     }
 
     function drawNotebook(canvas, g) {
-      const W = 640, H = 340;
+      const W = 680, H = 370;
       canvas.width = W; canvas.height = H;
       const ctx = canvas.getContext('2d');
-      ctx.fillStyle = '#F5F0E4'; ctx.fillRect(0, 0, W, H);
-      ctx.strokeStyle = 'rgba(26,16,51,0.14)'; ctx.lineWidth = 1;
-      for (let x = 20; x < W / 2 - 10; x += 16) { ctx.beginPath(); ctx.moveTo(x, 20); ctx.lineTo(x, H - 20); ctx.stroke(); }
-      for (let y = 20; y < H - 20; y += 16) { ctx.beginPath(); ctx.moveTo(20, y); ctx.lineTo(W / 2 - 10, y); ctx.stroke(); }
-      ctx.strokeStyle = '#1A1033'; ctx.lineWidth = 2;
+      ctx.fillStyle = '#FCFBF7'; ctx.fillRect(0, 0, W, H);
+      const sp = ctx.createLinearGradient(W / 2 - 12, 0, W / 2 + 12, 0);
+      sp.addColorStop(0, 'rgba(20,17,36,0)'); sp.addColorStop(0.5, 'rgba(20,17,36,0.08)'); sp.addColorStop(1, 'rgba(20,17,36,0)');
+      ctx.fillStyle = sp; ctx.fillRect(W / 2 - 12, 0, 24, H);
+
+      ctx.strokeStyle = 'rgba(20,17,36,0.09)'; ctx.lineWidth = 1;
+      for (let x = 24; x < W / 2 - 14; x += 16) { ctx.beginPath(); ctx.moveTo(x, 24); ctx.lineTo(x, H - 24); ctx.stroke(); }
+      for (let y = 24; y < H - 24; y += 16) { ctx.beginPath(); ctx.moveTo(24, y); ctx.lineTo(W / 2 - 14, y); ctx.stroke(); }
+
+      ctx.strokeStyle = '#141124'; ctx.lineWidth = 1.6;
       for (let r = 0; r < 4; r++) {
         for (let c = 0; c < 5; c++) {
-          const cx = 54 + c * 50, cy = 84 + r * 54;
+          const cx = 62 + c * 52, cy = 94 + r * 58;
           ctx.beginPath(); ctx.moveTo(cx, cy - 14); ctx.lineTo(cx + 14, cy); ctx.lineTo(cx, cy + 14); ctx.lineTo(cx - 14, cy); ctx.closePath(); ctx.stroke();
         }
       }
-      ctx.strokeStyle = '#E8261C'; ctx.setLineDash([7, 5]);
-      for (let y = 58; y < 290; y += 36) { ctx.beginPath(); ctx.moveTo(28, y); ctx.lineTo(W / 2 - 18, y); ctx.stroke(); }
+      ctx.strokeStyle = g.pigment; ctx.lineWidth = 1.8; ctx.setLineDash([7, 5]);
+      for (let y = 66; y < 310; y += 42) { ctx.beginPath(); ctx.moveTo(32, y); ctx.lineTo(W / 2 - 22, y); ctx.stroke(); }
       ctx.setLineDash([]);
+
       ctx.fillStyle = `rgb(${g.patina.base.join(',')})`;
-      ctx.fillRect(W / 2 + 24, 42, 136, 98);
-      ctx.fillStyle = 'rgba(255,198,10,0.72)';
-      ctx.fillRect(W / 2 + 16, 34, 38, 14);
-      ctx.fillRect(W / 2 + 132, 130, 38, 14);
-      ctx.strokeStyle = 'rgba(138,88,46,0.22)'; ctx.lineWidth = 5;
-      ctx.beginPath(); ctx.arc(W - 64, H - 64, 36, 0, Math.PI * 2); ctx.stroke();
-      ctx.fillStyle = '#1A1033'; ctx.font = 'bold 12px Menlo, monospace';
-      ctx.fillText(g.nbCode, 24, 38);
-      ctx.fillText('BENCH NOTES:', W / 2 + 24, 174);
-      ctx.font = '12px Helvetica, sans-serif';
-      g.nbLines.forEach((ln, i) => ctx.fillText('• ' + ln, W / 2 + 24, 200 + i * 24));
+      ctx.fillRect(W / 2 + 28, 48, 142, 102);
+      ctx.fillStyle = 'rgba(245,180,0,0.65)';
+      ctx.fillRect(W / 2 + 18, 40, 38, 12);
+      ctx.fillRect(W / 2 + 140, 142, 38, 12);
+
+      ctx.fillStyle = '#141124'; ctx.font = 'bold 10.5px Menlo, monospace';
+      ctx.fillText(g.nbCode, 28, 42);
+      ctx.fillText('WORKSHOP BENCH NOTES', W / 2 + 28, 188);
+      ctx.font = '12.5px Helvetica, sans-serif';
+      ctx.fillStyle = '#4A465C';
+      g.nbLines.forEach((ln, i) => ctx.fillText('— ' + ln, W / 2 + 28, 218 + i * 26));
     }
 
     function mount3D() {
       stopGL();
       const host = document.getElementById('layer3d');
       const status = document.getElementById('stageStatus');
+      const ctrls = document.getElementById('opticalCtrls');
       const g = GARMENTS[state.idx];
 
       if (state.plain || typeof THREE === 'undefined') {
+        ctrls.style.display = 'none';
         state.mode = 'lookbook';
-        renderShop();
+        renderHero();
         return;
       }
 
-      const w = host.clientWidth || 900;
-      const h = host.clientHeight || 490;
+      ctrls.style.display = 'flex';
+      const w = host.clientWidth || 780;
+      const h = host.clientHeight || 550;
+
       const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
       renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
       renderer.setSize(w, h);
       renderer.outputEncoding = THREE.sRGBEncoding;
       renderer.toneMapping = THREE.ACESFilmicToneMapping;
-      renderer.toneMappingExposure = 1.1;
+      renderer.toneMappingExposure = 1.08;
       renderer.physicallyCorrectLights = true;
       renderer.shadowMap.enabled = true;
       host.appendChild(renderer.domElement);
@@ -937,34 +1778,43 @@
       const scene = new THREE.Scene();
       const pmrem = new THREE.PMREMGenerator(renderer);
       const envScene = new THREE.Scene();
-      envScene.background = new THREE.Color('#FFE599');
+      envScene.background = new THREE.Color('#FAF9F6');
       const card = new THREE.Mesh(
         new THREE.PlaneGeometry(4, 3),
-        new THREE.MeshBasicMaterial({ color: new THREE.Color(2.6, 2.1, 1.5), side: THREE.DoubleSide })
+        new THREE.MeshBasicMaterial({ color: new THREE.Color(2.4, 2.35, 2.25), side: THREE.DoubleSide })
       );
       card.position.set(2, 3, 2); card.lookAt(0, 0, 0);
       envScene.add(card);
       const envRT = pmrem.fromScene(envScene, 0.04);
       scene.environment = envRT.texture;
 
-      const cam = new THREE.PerspectiveCamera(34, w / h, 0.05, 50);
-      cam.position.set(0.2, 0.45, 1.45);
+      const cam = new THREE.PerspectiveCamera(32, w / h, 0.05, 50);
+      const defaultPos = new THREE.Vector3(0.16, 0.42, 1.36);
+      cam.position.copy(defaultPos);
+
       const controls = new THREE.OrbitControls(cam, renderer.domElement);
       controls.enableDamping = true;
-      controls.target.set(0, 0.35, 0);
+      controls.enableZoom = false; // Never trap page scrolling
+      controls.target.set(0, 0.34, 0);
 
-      scene.add(new THREE.HemisphereLight('#FFFDF7', '#E5B96D', 0.72));
-      const key = new THREE.DirectionalLight('#FFE7BE', 2.4);
-      key.position.set(1.8, 2.8, 2.0); key.castShadow = true;
+      scene.add(new THREE.HemisphereLight('#FFFFFF', '#E6E2D8', 0.85));
+      const key = new THREE.DirectionalLight('#FFFDF8', 2.25);
+      key.position.set(1.8, 2.8, 2.2); key.castShadow = true;
       scene.add(key);
 
-      const floor = new THREE.Mesh(new THREE.PlaneGeometry(5, 5), new THREE.ShadowMaterial({ opacity: 0.16 }));
+      const rim = new THREE.DirectionalLight('#E8F0FF', 0.7);
+      rim.position.set(-2.0, 1.6, -1.5);
+      scene.add(rim);
+
+      const floor = new THREE.Mesh(new THREE.PlaneGeometry(5, 5), new THREE.ShadowMaterial({ opacity: 0.12 }));
       floor.rotation.x = -Math.PI / 2; floor.receiveShadow = true;
       scene.add(floor);
 
       const root = new THREE.Group();
       scene.add(root);
-      status.textContent = `LOADING ${g.glb}...`;
+      status.textContent = `LOADING ${g.glb.replace('./', '').toUpperCase()}`;
+
+      let targetCenterY = 0.34;
 
       new THREE.GLTFLoader().load(
         g.glb,
@@ -975,30 +1825,54 @@
               n.castShadow = true; n.receiveShadow = true;
               if (n.material) {
                 n.material.side = THREE.DoubleSide;
-                n.material.envMapIntensity = (n.material.metalness || 0) > 0.5 ? 1.1 : 0.45;
+                n.material.envMapIntensity = (n.material.metalness || 0) > 0.5 ? 1.05 : 0.45;
                 n.material.needsUpdate = true;
               }
             }
           });
           const b1 = new THREE.Box3().setFromObject(model);
           const sz = b1.getSize(new THREE.Vector3());
-          const scale = 0.68 / (Math.max(sz.x, sz.y, sz.z) || 1);
+          const scale = 0.72 / (Math.max(sz.x, sz.y, sz.z) || 1);
           model.scale.multiplyScalar(scale);
           model.updateMatrixWorld(true);
           const b2 = new THREE.Box3().setFromObject(model);
           const ctr = b2.getCenter(new THREE.Vector3());
           model.position.set(-ctr.x, -b2.min.y, -ctr.z);
           root.add(model);
-          controls.target.set(0, ctr.y * scale, 0);
-          status.textContent = `3D MODEL · ${g.glb}`;
+          targetCenterY = ctr.y * scale;
+          controls.target.set(0, targetCenterY, 0);
+          status.textContent = `DRAG TO ORBIT · ${g.glb.replace('./', '').toUpperCase()}`;
         },
         undefined,
         () => {
-          status.textContent = `${g.glb} missing — showing 16mm still`;
+          status.textContent = 'GLB NOT FOUND — SHOWING 16MM STILL';
           state.mode = 'lookbook';
-          renderLookbook();
+          renderLookbookStage();
         }
       );
+
+      state.camApi = {
+        zoom(factor) {
+          const dir = cam.position.clone().sub(controls.target);
+          const nextLen = Math.min(2.6, Math.max(0.75, dir.length() * factor));
+          dir.setLength(nextLen);
+          cam.position.copy(controls.target).add(dir);
+        },
+        reset() {
+          cam.position.copy(defaultPos);
+          controls.target.set(0, targetCenterY, 0);
+          controls.update();
+        }
+      };
+
+      const onResize = () => {
+        const nw = host.clientWidth || 780;
+        const nh = host.clientHeight || 550;
+        cam.aspect = nw / nh;
+        cam.updateProjectionMatrix();
+        renderer.setSize(nw, nh);
+      };
+      window.addEventListener('resize', onResize);
 
       let raf = 0;
       const tick = () => { controls.update(); renderer.render(scene, cam); raf = requestAnimationFrame(tick); };
@@ -1006,12 +1880,14 @@
 
       state.disposeGL = () => {
         cancelAnimationFrame(raf);
+        window.removeEventListener('resize', onResize);
         controls.dispose(); envRT.dispose(); pmrem.dispose(); renderer.dispose();
       };
     }
 
     function mountCloth() {
       stopGL();
+      document.getElementById('opticalCtrls').style.display = 'none';
       const host = document.getElementById('layerCloth');
       const status = document.getElementById('stageStatus');
       const g = GARMENTS[state.idx];
@@ -1021,11 +1897,11 @@
 
       if (state.plain || typeof THREE === 'undefined') {
         host.innerHTML = `<img src="${alb.toDataURL ? alb.toDataURL() : alb.src}" alt="Cloth swatch" style="width:100%;height:100%;object-fit:cover;" />`;
-        status.textContent = 'CLOTH VIEW';
+        status.textContent = 'CLOTH MACRO PLATE';
         return;
       }
 
-      const w = host.clientWidth || 900, h = host.clientHeight || 490;
+      const w = host.clientWidth || 780, h = host.clientHeight || 550;
       const renderer = new THREE.WebGLRenderer({ antialias: true });
       renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
       renderer.setSize(w, h);
@@ -1037,7 +1913,7 @@
       const tA = new THREE.CanvasTexture(alb), tN = new THREE.CanvasTexture(nrm);
 
       const mat = new THREE.ShaderMaterial({
-        uniforms: { uA: { value: tA }, uN: { value: tN }, uL: { value: new THREE.Vector3(0.3, 0.3, 0.35) }, uC: { value: new THREE.Color('#FFF0D4') } },
+        uniforms: { uA: { value: tA }, uN: { value: tN }, uL: { value: new THREE.Vector3(0.3, 0.3, 0.35) }, uC: { value: new THREE.Color('#FFF8EC') } },
         vertexShader: `varying vec2 vUv; varying vec2 vP; void main(){ vUv=uv; vP=position.xy; gl_Position=vec4(position.xy,0.0,1.0); }`,
         fragmentShader: `
           uniform sampler2D uA; uniform sampler2D uN; uniform vec3 uL; uniform vec3 uC;
@@ -1045,9 +1921,9 @@
           void main(){
             vec3 a = texture2D(uA, vUv).rgb;
             vec3 n = normalize(texture2D(uN, vUv).rgb * 2.0 - 1.0);
-            n.xy *= 1.6; n = normalize(n);
+            n.xy *= 1.65; n = normalize(n);
             float d = max(dot(n, normalize(uL - vec3(vP, 0.0))), 0.0);
-            gl_FragColor = vec4(a * 0.35 + a * d * uC * 0.95, 1.0);
+            gl_FragColor = vec4(a * 0.36 + a * d * uC * 0.96, 1.0);
           }`
       });
       scene.add(new THREE.Mesh(new THREE.PlaneGeometry(2, 2), mat));
@@ -1068,7 +1944,7 @@
         raf = requestAnimationFrame(tick);
       };
       tick();
-      status.textContent = 'RAKING CLOTH · MOVE POINTER';
+      status.textContent = 'RAKING CLOTH LIGHT · MOVE POINTER';
 
       state.disposeGL = () => {
         cancelAnimationFrame(raf);
@@ -1077,80 +1953,66 @@
       };
     }
 
-    function renderLookbook() {
+    function renderLookbookStage() {
       stopGL();
+      document.getElementById('opticalCtrls').style.display = 'none';
       const g = GARMENTS[state.idx];
+      const fb = fallbackPlateSVG(g.title, g.pigment);
       document.getElementById('layerLookbook').innerHTML = `
-        <div style="max-width:760px; margin:0 auto; background:#FFFDF8; border:2.5px solid #1A1033; box-shadow:5px 5px 0 #1A1033; border-radius:18px; padding:18px; display:flex; flex-direction:column; gap:12px;">
-          <div style="font-family:var(--mono); font-size:11px; font-weight:800; color:#FF2E80;">${g.stillTag} — ${g.title.toUpperCase()}</div>
-          <img src="${g.stillSrc}" alt="${g.title} still" style="width:100%; max-height:310px; object-fit:cover; border-radius:12px; border:2px solid #1A1033; background:#FFE48F;" onerror="this.style.display='none'" />
-          <p style="margin:0; font-size:14px;"><strong>Workshop friction:</strong> ${g.chaos}</p>
+        <div style="max-width:680px; margin:0 auto; background:#FFFFFF; border:1px solid var(--line); border-radius:14px; padding:14px;">
+          <img src="${g.stillSrc}" alt="${g.title} 16mm lookbook still"
+               style="width:100%; max-height:400px; object-fit:cover; border-radius:8px; display:block;"
+               onerror="this.onerror=null; this.src='${fb}'" />
+          <div style="display:flex; justify-content:space-between; margin-top:10px; font-family:var(--mono); font-size:10.5px;">
+            <span style="color:var(--rani); font-weight:700;">${g.stillTag}</span>
+            <span style="color:var(--muted);">16MM KODAK VISION3</span>
+          </div>
         </div>`;
       document.getElementById('stageStatus').textContent = g.stillTag;
     }
 
-    function renderShop() {
+    function renderHero() {
       const g = GARMENTS[state.idx];
       document.getElementById('pieceKicker').textContent = g.kicker;
-      document.getElementById('pieceStillTag').textContent = g.stillTag;
-      document.getElementById('winTitle').textContent = `C:\\DESISHOP\\${g.id.toUpperCase()}.GLB`;
+      document.getElementById('pieceDev').textContent = g.dev;
       document.getElementById('heroTitle').textContent = g.title;
+      document.getElementById('heroPrice').textContent = fmt(g.priceUSD);
+      document.getElementById('heroHoursChip').textContent = g.hours;
       document.getElementById('heroDesc').textContent = g.desc;
-      document.getElementById('stripTitle').textContent = g.title;
-      document.getElementById('stripPrice').textContent = fmt(g.priceUSD);
+      document.getElementById('retFile').textContent = g.glb.replace('./', '').toUpperCase();
+      document.getElementById('retStill').textContent = g.stillTag;
+      document.getElementById('stageClusterLine').textContent = `${g.kicker} · ${g.maker}`;
+
+      document.getElementById('atelierHeading').textContent = `Proof of Hands: ${g.title}`;
       document.getElementById('specMaker').textContent = g.maker;
       document.getElementById('specHours').textContent = g.hours;
       document.getElementById('specChaos').textContent = g.chaos;
       document.getElementById('nbCode').textContent = g.nbCode;
 
-      document.getElementById('coverflowDock').innerHTML = GARMENTS.map((item, i) => `
-        <button class="cf-card ${i === state.idx ? 'active' : ''}" data-pick="${i}">
-          <span style="font-family:var(--mono); font-size:10px; opacity:0.8;">0${i + 1} · ${item.kicker}</span>
-          <strong style="font-size:13px;">${item.title}</strong>
-          <span style="font-family:var(--mono); font-size:11px;">${fmt(item.priceUSD)}</span>
+      document.getElementById('garmentStrip').innerHTML = GARMENTS.map((item, i) => `
+        <button class="garment-tab ${i === state.idx ? 'active' : ''}" data-pick="${i}">
+          <span class="gt-top">
+            <span>0${i + 1} · ${item.dev}</span>
+            <span class="gt-swatch" style="background:${item.pigment};"></span>
+          </span>
+          <span class="gt-name">${item.title}</span>
+          <span class="gt-price">${fmt(item.priceUSD)}</span>
         </button>`).join('');
 
       document.querySelectorAll('[data-pick]').forEach(btn => {
         btn.onclick = () => {
           state.idx = parseInt(btn.dataset.pick, 10);
-          state.size = GARMENTS[state.idx].sizes[0].l;
-          renderShop();
+          state.size = GARMENTS[state.idx].sizes.find(s => s.ok)?.l || GARMENTS[state.idx].sizes[0].l;
+          renderHero();
         };
       });
 
-      const maxH = Math.max(...g.bars.map(b => b[1]));
-      document.getElementById('hoursBars').innerHTML = g.bars.map(([lbl, h]) => `
-        <div class="hour-row">
-          <span>${lbl}</span>
-          <div class="bar-bg"><div class="bar-fg" style="width:${Math.round((h / maxH) * 100)}%;"></div></div>
-          <span style="text-align:right;">${h}H</span>
-        </div>`).join('');
-
-      const nbCanvas = document.getElementById('nbCanvas');
-      drawNotebook(nbCanvas, g);
-      nbCanvas.onclick = () => {
-        document.getElementById('lbTitle').textContent = `${g.nbCode} — ${g.title.toUpperCase()}`;
-        drawNotebook(document.getElementById('lbCanvas'), g);
-        document.getElementById('nbLightbox').classList.add('open');
-      };
-
-      const slider = document.getElementById('patinaSlider');
-      const updatePatina = (yr) => {
-        const t = yr / 5;
-        const mix = (a, b) => Math.round(a + (b - a) * t);
-        const rgb = [0, 1, 2].map(i => mix(g.patina.base[i], g.patina.aged[i]));
-        document.getElementById('patinaSwatch').style.background = `rgb(${rgb.join(',')})`;
-        document.getElementById('patinaYr').textContent = `YR ${yr}`;
-        document.getElementById('patinaNote').textContent = g.patina.notes[yr === 0 ? 0 : yr <= 2 ? 1 : yr <= 4 ? 2 : 3];
-      };
-      slider.value = 0;
-      slider.oninput = (e) => updatePatina(parseInt(e.target.value, 10));
-      updatePatina(0);
-
-      const szBox = document.getElementById('sizePills');
+      const szBox = document.getElementById('sizeGrid');
       szBox.innerHTML = g.sizes.map(s => `
-        <button class="sz-pill ${s.ok ? '' : 'soldout'} ${state.size === s.l ? 'active' : ''}" data-sz="${s.l}">${s.l}</button>`).join('');
-      szBox.querySelectorAll('[data-sz]').forEach(b => { b.onclick = () => { state.size = b.dataset.sz; renderShop(); }; });
+        <button class="sz-btn ${s.ok ? '' : 'soldout'} ${state.size === s.l ? 'active' : ''}" data-sz="${s.l}">${s.l}</button>`).join('');
+      szBox.querySelectorAll('[data-sz]').forEach(b => {
+        b.onclick = () => { state.size = b.dataset.sz; renderHero(); };
+      });
 
       const cur = g.sizes.find(s => s.l === state.size) || g.sizes[0];
       const buyBtn = document.getElementById('buyBtn');
@@ -1159,89 +2021,222 @@
 
       if (cur.ok) {
         buyBtn.style.display = 'block';
-        buyBtn.textContent = `Add Size ${cur.l} — ${fmt(g.priceUSD)}`;
+        buyBtn.textContent = `Add Size ${cur.l} to Bag — ${fmt(g.priceUSD)}`;
         wl.classList.remove('open');
       } else {
         buyBtn.style.display = 'none';
         wl.classList.add('open');
       }
 
+      const maxH = Math.max(...g.bars.map(b => b[1]));
+      document.getElementById('hoursBars').innerHTML = g.bars.map(([lbl, h, col]) => `
+        <div class="hour-row">
+          <span>${lbl}</span>
+          <div class="hour-track"><div class="hour-fill" style="width:${Math.round((h / maxH) * 100)}%; background:${col};"></div></div>
+          <span style="text-align:right; font-weight:600;">${h}H</span>
+        </div>`).join('');
+
+      const nbCanvas = document.getElementById('nbCanvas');
+      drawNotebook(nbCanvas, g);
+      nbCanvas.onclick = () => {
+        document.getElementById('lbTitle').textContent = `${g.nbCode} — ${g.title.toUpperCase()}`;
+        drawNotebook(document.getElementById('lbCanvas'), g);
+        document.getElementById('nbModal').classList.add('open');
+      };
+
+      const slider = document.getElementById('patinaSlider');
+      const updatePatina = (yr) => {
+        const t = yr / 5;
+        const mix = (a, b) => Math.round(a + (b - a) * t);
+        const rgb = [0, 1, 2].map(i => mix(g.patina.base[i], g.patina.aged[i]));
+        document.getElementById('patinaSwatch').style.background = `rgb(${rgb.join(',')})`;
+        document.getElementById('patinaYr').textContent = yr === 0 ? 'YEAR 0 (NEW)' : `YEAR ${yr}`;
+        document.getElementById('patinaNote').textContent = g.patina.notes[yr === 0 ? 0 : yr <= 2 ? 1 : yr <= 4 ? 2 : 3];
+      };
+      slider.value = 0;
+      slider.oninput = (e) => updatePatina(parseInt(e.target.value, 10));
+      updatePatina(0);
+
       ['3d', 'cloth', 'lookbook'].forEach(m => {
-        document.getElementById('layer' + (m === '3d' ? '3d' : m === 'cloth' ? 'Cloth' : 'Lookbook')).classList.toggle('active', state.mode === m);
-        document.getElementById('mode' + (m === '3d' ? '3d' : m === 'cloth' ? 'Cloth' : 'Lookbook')).classList.toggle('active', state.mode === m);
+        const key = m === '3d' ? '3d' : m === 'cloth' ? 'Cloth' : 'Lookbook';
+        document.getElementById('layer' + key).classList.toggle('active', state.mode === m);
+        document.getElementById('mode' + key).classList.toggle('active', state.mode === m);
       });
 
       if (state.mode === '3d') mount3D();
       else if (state.mode === 'cloth') mountCloth();
-      else renderLookbook();
+      else renderLookbookStage();
     }
 
-    function renderZines() {
-      const p = ZINE_PAGES[state.zineIdx];
-      document.getElementById('zinePageNum').textContent = `SPREAD ${state.zineIdx + 1} / ${ZINE_PAGES.length}`;
-      document.getElementById('zineReaderCard').innerHTML = `
-        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(240px, 1fr)); gap:18px;">
-          <div style="background:#FFC60A; border:2px solid #1A1033; border-radius:14px; padding:18px;">
-            <div style="font-family:var(--mono); font-size:11px; font-weight:800; margin-bottom:6px;">${p.left}</div>
-            <p style="margin:0;">${p.bodyL}</p>
-          </div>
-          <div style="background:#FFF4DE; border:2px solid #1A1033; border-radius:14px; padding:18px;">
-            <div style="font-family:var(--mono); font-size:11px; font-weight:800; color:#FF2E80; margin-bottom:6px;">${p.right}</div>
-            <p style="margin:0;">${p.bodyR}</p>
-          </div>
-        </div>`;
+    function renderCatalog() {
+      const all = [...GARMENTS, ...ACCESSIBLE_ITEMS];
+      const list = state.filter === 'all' ? all : all.filter(x => x.category === state.filter);
 
-      document.getElementById('scrapsGrid').innerHTML = SCRAPS.map(s => `
-        <article class="k-card">
-          <div style="background:${s.accent}; color:${s.accent === '#FFC60A' ? '#1A1033' : '#FFF'}; border:2px solid #1A1033; border-radius:999px; padding:4px 12px; align-self:flex-start; font-family:var(--mono); font-size:11px; font-weight:800;">
-            ${fmt(s.priceUSD)}
-          </div>
-          <strong style="font-size:16px;">${s.title}</strong>
-          <p style="margin:0; flex:1;">${s.note}</p>
-          <button class="cta-btn" style="margin-top:0;" data-add-scrap="${s.id}">Add to Bag</button>
-        </article>`).join('');
+      document.getElementById('catalogGrid').innerHTML = list.map((item) => {
+        const fb = fallbackPlateSVG(item.title, item.pigment);
+        const isMain = item.category === 'mainline';
+        return `
+          <article class="product-card">
+            <div class="pc-media">
+              <img src="${item.stillSrc}" alt="${item.title}" onerror="this.onerror=null; this.src='${fb}'" />
+              <span class="pc-tag" style="color:${item.pigment};">${isMain ? 'Mainline · 3D' : 'Zine / Offcut'}</span>
+            </div>
+            <div class="pc-body">
+              <span class="pc-origin">${item.kicker}</span>
+              <h3 class="pc-title">${item.title}</h3>
+              <p class="pc-note">${item.desc}</p>
+              <div class="pc-foot">
+                <span class="pc-price">${fmt(item.priceUSD)}</span>
+                <div style="display:flex; gap:6px;">
+                  ${isMain ? `<button class="pc-btn" data-inspect="${item.id}">Inspect 3D</button>` : ''}
+                  <button class="pc-btn" style="background:var(--ink); color:#FFF;" data-quick-add="${item.id}">+ Bag</button>
+                </div>
+              </div>
+            </div>
+          </article>`;
+      }).join('');
 
-      document.querySelectorAll('[data-add-scrap]').forEach(btn => {
+      document.querySelectorAll('[data-inspect]').forEach(btn => {
         btn.onclick = () => {
-          const found = SCRAPS.find(x => x.id === btn.dataset.addScrap);
+          const foundIdx = GARMENTS.findIndex(x => x.id === btn.dataset.inspect);
+          if (foundIdx >= 0) {
+            state.idx = foundIdx;
+            state.mode = '3d';
+            state.size = GARMENTS[foundIdx].sizes.find(s => s.ok)?.l || GARMENTS[foundIdx].sizes[0].l;
+            renderHero();
+            document.getElementById('showcase').scrollIntoView({ behavior: 'smooth' });
+          }
+        };
+      });
+
+      document.querySelectorAll('[data-quick-add]').forEach(btn => {
+        btn.onclick = () => {
+          const allItems = [...GARMENTS, ...ACCESSIBLE_ITEMS];
+          const found = allItems.find(x => x.id === btn.dataset.quickAdd);
           if (found) {
-            state.bag.push({ title: found.title, size: 'STD', priceUSD: found.priceUSD });
-            renderBag();
-            document.getElementById('bagDrawer').classList.add('open');
+            const defSz = found.sizes ? (found.sizes.find(s => s.ok)?.l || 'OS') : 'STD';
+            addToBag(found.title, defSz, found.priceUSD);
           }
         };
       });
     }
 
-    function renderRaw() {
-      document.getElementById('rawGrid').innerHTML = CONTACT_FRAMES.map(f => `
-        <article class="k-card">
-          <span style="background:${f.accent}; color:${f.accent === '#FFC60A' || f.accent === '#00D2D3' ? '#1A1033' : '#FFF'}; border:2px solid #1A1033; border-radius:999px; padding:4px 12px; align-self:flex-start; font-family:var(--mono); font-size:11px; font-weight:800;">
-            ${f.num} · ${f.loc}
-          </span>
-          <img src="${f.src}" alt="${f.loc}" class="frame-img" style="background:${f.accent};" onerror="this.style.display='none'" />
-          <p style="margin:0;">${f.text}</p>
-        </article>`).join('');
+    function renderEditorial() {
+      const p = ZINE_PAGES[state.zineIdx];
+      document.getElementById('zinePageNum').textContent = `0${state.zineIdx + 1} / 0${ZINE_PAGES.length}`;
+      document.getElementById('zineFolio').innerHTML = `
+        <div class="zine-leaf">
+          <div>
+            <div style="font-family:var(--mono); font-size:10px; font-weight:700; letter-spacing:0.14em; color:var(--sindoor); margin-bottom:10px;">${p.leftKicker}</div>
+            <h3 style="margin:0 0 12px; font-family:var(--serif); font-size:28px; font-weight:400;">${p.leftTitle}</h3>
+            <p style="margin:0; font-size:14.5px; line-height:1.65; color:var(--ink-soft);">${p.bodyL}</p>
+          </div>
+          <div style="font-family:var(--mono); font-size:10px; color:var(--muted); margin-top:24px;">A6 RISOGRAPH · UNCOATED 110GSM</div>
+        </div>
+        <div class="zine-leaf">
+          <div>
+            <div style="font-family:var(--mono); font-size:10px; font-weight:700; letter-spacing:0.14em; color:var(--rani); margin-bottom:10px;">${p.rightKicker}</div>
+            <h3 style="margin:0 0 12px; font-family:var(--serif); font-size:28px; font-weight:400;">${p.rightTitle}</h3>
+            <p style="margin:0; font-size:14.5px; line-height:1.65; color:var(--ink-soft);">${p.bodyR}</p>
+          </div>
+          <div style="font-family:var(--mono); font-size:10px; color:var(--chutney); text-align:right; margin-top:24px; font-weight:700;">KARTIK RESEARCH · NEW DELHI</div>
+        </div>`;
+
+      document.getElementById('lookbookStrip').innerHTML = GARMENTS.map((g, i) => {
+        const fb = fallbackPlateSVG(g.stillTag, g.pigment);
+        return `
+          <figure class="lb-tile" style="margin:0;">
+            <img src="${g.stillSrc}" alt="${g.title} lookbook" onerror="this.onerror=null; this.src='${fb}'" />
+            <figcaption class="lb-cap">
+              <span style="color:${g.pigment}; font-weight:700;">0${i + 1}</span>
+              <span>${g.stillTag}</span>
+            </figcaption>
+          </figure>`;
+      }).join('');
+    }
+
+    function renderContactSheet() {
+      document.getElementById('contactGrid').innerHTML = CONTACT_FRAMES.map(f => {
+        const fb = fallbackPlateSVG(`${f.num} · ${f.loc}`, f.accent);
+        return `
+          <article class="contact-card">
+            <div style="display:flex; justify-content:space-between; font-family:var(--mono); font-size:10px; font-weight:700; letter-spacing:0.1em;">
+              <span style="color:${f.accent};">${f.num}</span>
+              <span style="color:var(--muted);">${f.loc}</span>
+            </div>
+            <img src="${f.src}" alt="${f.loc}" onerror="this.onerror=null; this.src='${fb}'" />
+            <p style="margin:0; font-size:13px; color:var(--ink-soft);">${f.text}</p>
+          </article>`;
+      }).join('');
+    }
+
+    function addToBag(title, size, priceUSD) {
+      const existing = state.bag.find(x => x.title === title && x.size === size);
+      if (existing) existing.qty += 1;
+      else state.bag.push({ title, size, priceUSD, qty: 1 });
+      renderBag();
+      openBag();
+    }
+
+    function openBag() {
+      document.getElementById('drawerBackdrop').classList.add('open');
+      document.getElementById('bagDrawer').classList.add('open');
+    }
+
+    function closeBag() {
+      document.getElementById('drawerBackdrop').classList.remove('open');
+      document.getElementById('bagDrawer').classList.remove('open');
     }
 
     function renderBag() {
-      document.getElementById('bagCount').textContent = state.bag.length;
+      const totalQty = state.bag.reduce((a, x) => a + x.qty, 0);
+      const totalUSD = state.bag.reduce((a, x) => a + x.priceUSD * x.qty, 0);
+      document.getElementById('bagCount').textContent = totalQty;
+      document.getElementById('bagTotal').textContent = fmt(totalUSD);
+
+      const freeThresh = 500;
+      const pct = Math.min(100, Math.round((totalUSD / freeThresh) * 100));
+      document.getElementById('shipFill').style.width = `${pct}%`;
+      document.getElementById('shipText').textContent = totalUSD >= freeThresh
+        ? 'UNLOCKED: COMPLIMENTARY DHL EXPRESS (DUTIES PAID)'
+        : `ADD ${fmt(freeThresh - totalUSD)} FOR FREE WORLDWIDE EXPRESS`;
+
       const box = document.getElementById('bagList');
       box.innerHTML = state.bag.length
         ? state.bag.map((it, idx) => `
-            <div style="border:2px solid #1A1033; border-radius:14px; background:#FFF4DE; padding:10px 12px; display:flex; justify-content:space-between; align-items:center;">
+            <div class="bag-item">
               <div>
-                <strong>${it.title}</strong>
-                <div style="font-family:var(--mono); font-size:11px;">Size ${it.size} · ${fmt(it.priceUSD)}</div>
+                <div style="font-weight:600; font-size:13.5px;">${it.title}</div>
+                <div style="font-family:var(--mono); font-size:10.5px; color:var(--muted);">SIZE ${it.size} · ${fmt(it.priceUSD)}</div>
               </div>
-              <button class="gel-btn" data-rm="${idx}">Remove</button>
+              <div style="display:flex; align-items:center; gap:8px;">
+                <div class="qty-box">
+                  <button data-dec="${idx}" aria-label="Decrease quantity">&minus;</button>
+                  <span>${it.qty}</span>
+                  <button data-inc="${idx}" aria-label="Increase quantity">+</button>
+                </div>
+              </div>
             </div>`).join('')
-        : '<div style="font-family:var(--mono); font-size:12px;">Your bag is empty.</div>';
-      box.querySelectorAll('[data-rm]').forEach(b => { b.onclick = () => { state.bag.splice(parseInt(b.dataset.rm, 10), 1); renderBag(); }; });
-      document.getElementById('bagTotal').textContent = fmt(state.bag.reduce((a, x) => a + x.priceUSD, 0));
+        : '<div style="font-family:var(--mono); font-size:11.5px; color:var(--muted); padding:18px 0;">Your parcel bag is empty.</div>';
+
+      box.querySelectorAll('[data-dec]').forEach(b => {
+        b.onclick = () => {
+          const i = parseInt(b.dataset.dec, 10);
+          state.bag[i].qty -= 1;
+          if (state.bag[i].qty <= 0) state.bag.splice(i, 1);
+          renderBag();
+        };
+      });
+      box.querySelectorAll('[data-inc]').forEach(b => {
+        b.onclick = () => {
+          const i = parseInt(b.dataset.inc, 10);
+          state.bag[i].qty += 1;
+          renderBag();
+        };
+      });
     }
 
-    // Manual Workshop Audio + Live Canvas EQ
+    // Manual Workshop Audio Deck (Strictly Never Auto-Plays)
     const AudioDeck = {
       ctx: null,
       stems: { loom: false, block: false, air: false },
@@ -1272,15 +2267,16 @@
         const ctx = c.getContext('2d');
         const activeList = Object.keys(this.stems).filter(k => this.stems[k]);
         document.getElementById('audioReadout').textContent = activeList.length
-          ? `ACTIVE: ${activeList.join(' + ').toUpperCase()}`
-          : 'IDLE — CLICK A STEM';
+          ? `LIVE: ${activeList.join(' + ').toUpperCase()}`
+          : 'STANDBY — NEVER AUTO-PLAYS';
         cancelAnimationFrame(this.eqRaf);
+        const cols = ['#00875A', '#F5B400', '#E60067', '#E42313'];
         const draw = () => {
-          ctx.fillStyle = '#0D071A'; ctx.fillRect(0, 0, c.width, c.height);
-          for (let i = 0; i < 14; i++) {
-            const h = activeList.length ? (6 + Math.random() * 26) : 3;
-            ctx.fillStyle = i % 2 ? '#FF2E80' : '#00D2D3';
-            ctx.fillRect(4 + i * 9.5, c.height - h - 2, 6, h);
+          ctx.fillStyle = '#141124'; ctx.fillRect(0, 0, c.width, c.height);
+          for (let i = 0; i < 16; i++) {
+            const h = activeList.length ? (5 + Math.random() * 24) : 2;
+            ctx.fillStyle = cols[Math.floor(i / 4)];
+            ctx.fillRect(4 + i * 8.1, c.height - h - 3, 5, h);
           }
           if (activeList.length) this.eqRaf = requestAnimationFrame(draw);
         };
@@ -1292,10 +2288,10 @@
         if (this.stems[stem]) {
           if (!this.ensure()) { this.stems[stem] = false; return false; }
           if (stem === 'loom') {
-            const run = () => { if (!this.stems.loom) return; this.tap(320, 0.06, 0.14); this.timers.loom = setTimeout(run, 860); };
+            const run = () => { if (!this.stems.loom) return; this.tap(315, 0.06, 0.13); this.timers.loom = setTimeout(run, 870); };
             run();
           } else if (stem === 'block') {
-            const run = () => { if (!this.stems.block) return; this.tap(160, 0.09, 0.18); this.timers.block = setTimeout(run, 1250); };
+            const run = () => { if (!this.stems.block) return; this.tap(155, 0.09, 0.16); this.timers.block = setTimeout(run, 1280); };
             run();
           } else if (stem === 'air') {
             const len = this.ctx.sampleRate * 2;
@@ -1326,64 +2322,102 @@
       }
     };
 
-    document.querySelectorAll('.gel-btn[data-view]').forEach(tab => {
-      tab.onclick = () => {
-        stopGL();
-        const v = tab.dataset.view;
-        document.querySelectorAll('.gel-btn[data-view]').forEach(t => t.classList.toggle('active', t.dataset.view === v));
-        document.querySelectorAll('.view').forEach(sec => sec.classList.toggle('active', sec.id === 'view-' + v));
-        if (v === 'garments') renderShop();
-      };
-    });
+    // Event Wiring
+    document.getElementById('mode3d').onclick = () => { state.mode = '3d'; renderHero(); };
+    document.getElementById('modeCloth').onclick = () => { state.mode = 'cloth'; renderHero(); };
+    document.getElementById('modeLookbook').onclick = () => { state.mode = 'lookbook'; renderHero(); };
 
-    document.getElementById('mode3d').onclick = () => { state.mode = '3d'; renderShop(); };
-    document.getElementById('modeCloth').onclick = () => { state.mode = 'cloth'; renderShop(); };
-    document.getElementById('modeLookbook').onclick = () => { state.mode = 'lookbook'; renderShop(); };
+    document.getElementById('zoomInBtn').onclick = () => state.camApi && state.camApi.zoom(0.84);
+    document.getElementById('zoomOutBtn').onclick = () => state.camApi && state.camApi.zoom(1.18);
+    document.getElementById('resetCamBtn').onclick = () => state.camApi && state.camApi.reset();
 
     document.getElementById('buyBtn').onclick = () => {
       const g = GARMENTS[state.idx];
-      state.bag.push({ title: g.title, size: state.size, priceUSD: g.priceUSD });
-      renderBag();
-      document.getElementById('bagDrawer').classList.add('open');
+      addToBag(g.title, state.size, g.priceUSD);
     };
 
     document.getElementById('waitlistForm').onsubmit = (e) => {
       e.preventDefault();
       const g = GARMENTS[state.idx];
       const mail = document.getElementById('waitlistEmail').value.trim();
-      document.getElementById('waitlistMsg').textContent = `Added ${mail} to ${g.title} (${state.size}) waitlist.`;
+      document.getElementById('waitlistMsg').textContent = `Queued ${mail} for ${g.title} (Size ${state.size}).`;
       document.getElementById('waitlistEmail').value = '';
     };
 
-    document.getElementById('prevZine').onclick = () => { state.zineIdx = (state.zineIdx - 1 + ZINE_PAGES.length) % ZINE_PAGES.length; renderZines(); };
-    document.getElementById('nextZine').onclick = () => { state.zineIdx = (state.zineIdx + 1) % ZINE_PAGES.length; renderZines(); };
+    document.querySelectorAll('#catalogFilters .filter-pill').forEach(btn => {
+      btn.onclick = () => {
+        state.filter = btn.dataset.filter;
+        document.querySelectorAll('#catalogFilters .filter-pill').forEach(b => b.classList.toggle('active', b === btn));
+        renderCatalog();
+      };
+    });
+
+    document.getElementById('prevZine').onclick = () => { state.zineIdx = (state.zineIdx - 1 + ZINE_PAGES.length) % ZINE_PAGES.length; renderEditorial(); };
+    document.getElementById('nextZine').onclick = () => { state.zineIdx = (state.zineIdx + 1) % ZINE_PAGES.length; renderEditorial(); };
 
     document.querySelectorAll('[data-stem]').forEach(btn => {
       btn.onclick = () => btn.classList.toggle('on', AudioDeck.toggle(btn.dataset.stem));
     });
     document.getElementById('muteStems').onclick = () => AudioDeck.stopAll();
 
-    document.getElementById('currSelect').onchange = (e) => { state.currency = e.target.value; renderShop(); renderZines(); renderBag(); };
+    document.getElementById('currSelect').onchange = (e) => {
+      state.currency = e.target.value;
+      renderHero();
+      renderCatalog();
+      renderBag();
+    };
+
     document.getElementById('plainBtn').onclick = (e) => {
       state.plain = !state.plain;
       document.body.classList.toggle('plain-mode', state.plain);
       e.currentTarget.classList.toggle('on', state.plain);
       e.currentTarget.setAttribute('aria-pressed', String(state.plain));
-      e.currentTarget.textContent = `Plain: ${state.plain ? 'On' : 'Off'}`;
+      e.currentTarget.textContent = state.plain ? 'Plain: On' : 'Plain';
       if (state.plain) { AudioDeck.stopAll(); state.mode = 'lookbook'; }
-      renderShop();
+      renderHero();
     };
 
-    document.getElementById('bagBtn').onclick = () => document.getElementById('bagDrawer').classList.add('open');
-    document.getElementById('closeBag').onclick = () => document.getElementById('bagDrawer').classList.remove('open');
-    document.getElementById('checkoutBtn').onclick = () => alert('Ready for Shopify Storefront checkout.');
+    document.getElementById('bagBtn').onclick = openBag;
+    document.getElementById('closeBag').onclick = closeBag;
+    document.getElementById('drawerBackdrop').onclick = closeBag;
 
-    document.getElementById('closeLb').onclick = () => document.getElementById('nbLightbox').classList.remove('open');
-    document.getElementById('nbLightbox').onclick = (e) => { if (e.target.id === 'nbLightbox') e.target.classList.remove('open'); };
+    document.getElementById('checkoutBtn').onclick = () => {
+      if (!state.bag.length) return;
+      const totalUSD = state.bag.reduce((a, x) => a + x.priceUSD * x.qty, 0);
+      const count = state.bag.reduce((a, x) => a + x.qty, 0);
+      const ref = 'KR-' + Math.floor(100000 + Math.random() * 900000);
+      document.getElementById('checkoutSummary').textContent =
+        `Reference ${ref} · ${count} item(s) totaling ${fmt(totalUSD)}. Ready for live Shopify Storefront API wiring.`;
+      closeBag();
+      document.getElementById('checkoutModal').classList.add('open');
+    };
 
-    renderShop();
-    renderZines();
-    renderRaw();
+    document.getElementById('closeCheckout').onclick = () => document.getElementById('checkoutModal').classList.remove('open');
+    document.getElementById('closeNbModal').onclick = () => document.getElementById('nbModal').classList.remove('open');
+
+    document.getElementById('nbModal').onclick = (e) => { if (e.target.id === 'nbModal') e.currentTarget.classList.remove('open'); };
+    document.getElementById('checkoutModal').onclick = (e) => { if (e.target.id === 'checkoutModal') e.currentTarget.classList.remove('open'); };
+
+    document.getElementById('newsForm').onsubmit = (e) => {
+      e.preventDefault();
+      const mail = document.getElementById('newsEmail').value.trim();
+      document.getElementById('newsMsg').textContent = `Confirmed: ${mail} added to Atelier Dispatch.`;
+      document.getElementById('newsEmail').value = '';
+    };
+
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeBag();
+        document.getElementById('nbModal').classList.remove('open');
+        document.getElementById('checkoutModal').classList.remove('open');
+      }
+    });
+
+    // Initial Render
+    renderHero();
+    renderCatalog();
+    renderEditorial();
+    renderContactSheet();
     renderBag();
     AudioDeck.updateEQ();
   })();
